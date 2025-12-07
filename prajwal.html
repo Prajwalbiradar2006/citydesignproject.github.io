@@ -570,64 +570,39 @@
   // ==== DATA: 10 PROBLEMS ====
   const problems = [
     {
-      id: 1,
+      id: "two-sum",
       number: 1,
-      title: "Waste Recycling & Management Center",
-      categoryTag: "",
-      shortTag: "merge+dijkstra",
+      title: "Two Sum",
+      categoryTag: "Hashing",
+      shortTag: "Hash Map",
       time: "O(n)",
       space: "O(n)",
-      algorithm: "Merge Sort,Dijkstra’s",
+      algorithm: "Hash Map (value → index)",
       sdgs: [
         "SDG 9: Industry, Innovation and Infrastructure",
         "SDG 12: Responsible Consumption and Production"
       ],
       problemText:
-        "A recycling center receives mixed waste from different households—plastic, metal, paper, glass, and organic materials. Before recycling, the waste must be organized properly, and trucks must follow efficient routes to collect waste from various parts of the city.",
-      solutionText: "To make the recycling process efficient, the waste must first be sorted based on its type or importance. Then, garbage trucks should collect waste using the shortest possible route so that fuel and time are saved. This reduces operational cost and helps the environment.",
-      code: `merge sort
-      void mergeSort(vector<int>& a, int l, int r) {
-    if (l >= r) return;
-
-    int m = (l + r) / 2;
-    mergeSort(a, l, m);
-    mergeSort(a, m + 1, r);
-
-    vector<int> t;
-    int i = l, j = m + 1;
-
-    while (i <= m && j <= r)
-        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
-
-    while (i <= m) t.push_back(a[i++]);
-    while (j <= r) t.push_back(a[j++]);
-
-    for (int k = 0; k < t.size(); k++)
-        a[l + k] = t[k];
-}
-
-Dijkstra
-vector<int> dijkstra(vector<vector<int>>& g, int src) {
-    int n = g.size();
-    vector<int> dist(n, INT_MAX), vis(n, 0);
-    dist[src] = 0;
-
-    for (int i = 0; i < n; i++) {
-        int u = -1;
-        for (int j = 0; j < n; j++)
-            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
-                u = j;
-
-        vis[u] = 1;
-
-        for (int v = 0; v < n; v++)
-            if (g[u][v] && dist[u] + g[u][v] < dist[v])
-                dist[v] = dist[u] + g[u][v];
+        "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Assume exactly one solution and you may not use the same element twice.",
+      solutionText:
+        "We iterate the array once while maintaining a hash map from value to index. For each element x at index i we compute need = target − x. If need is already in the map, we immediately return the pair (map[need], i). Otherwise we store x in the map. This gives linear time and uses extra space for the map.",
+      photo: {
+        src: "images/two-sum.png",
+        alt: "Visualising pairs that sum to a target on a number line.",
+        label: "Number line insight",
+        caption: "Highlighting pairs whose sum hits the target."
+      },
+      code: `function twoSum(nums, target) {
+  const mp = new Map(); // value -> index
+  for (let i = 0; i < nums.length; i++) {
+    const need = target - nums[i];
+    if (mp.has(need)) {
+      return [mp.get(need), i];
     }
-
-    return dist;  
-}
-`,
+    mp.set(nums[i], i);
+  }
+  return []; // should not happen if input guarantees a solution
+}`,
  
     },
     {
