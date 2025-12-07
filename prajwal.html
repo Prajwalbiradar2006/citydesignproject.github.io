@@ -579,8 +579,9 @@
       space: "O(n)",
       algorithm: "Merge Sort,Dijkstra’s",
       sdgs: [
-        "SDG 9: Industry, Innovation and Infrastructure",
-        "SDG 12: Responsible Consumption and Production"
+        "SDG 11 – Sustainable Cities & Communities Reduces waste in the city and improves cleanliness.",
+        "SDG 12 – Responsible Consumption & Production Promotes recycling and proper waste management.",
+        "SDG 13 – Climate Action Reduces pollution and carbon emissions.",
       ],
       problemText:
         "A recycling center receives mixed waste from different households—plastic, metal, paper, glass, and organic materials. Before recycling, the waste must be organized properly, and trucks must follow efficient routes to collect waste from various parts of the city.",
@@ -631,379 +632,627 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
  
     },
     {
-      id: "merge-sort",
+      id: 2,
       number: 2,
-      title: "Stable Array Sorting",
-      categoryTag: "Sorting",
-      shortTag: "Merge Sort",
+      title: "Public Transport Management System",
+      categoryTag: "",
+      shortTag: "Dijkstra’s+Floyd–Warshall",
       time: "O(n log n)",
       space: "O(n)",
-      algorithm: "Merge Sort (divide & conquer, stable)",
+      algorithm: "Dijkstra’s+Floyd–Warshall",
       sdgs: [
-        "SDG 9: Industry, Innovation and Infrastructure",
-        "SDG 8: Decent Work and Economic Growth"
+        "SDG 9 – Industry, Innovation & Infrastructure Improves transport infrastructure using technology.",
+        "SDG 11 – Sustainable Cities & Communities Promotes efficient and eco-friendly public transport.",
+        "SDG 13 – Climate Action Reduces carbon emissions through better mobility.",
       ],
       problemText:
-        "Sort an array of integers in non-decreasing order with a stable algorithm (elements with equal keys keep their relative order).",
+        "Modern cities need a transport system that tells passengers which bus to take, what the best route is, and how long the journey will take. Managing hundreds of buses and stops manually becomes very difficult.",
       solutionText:
-        "We use merge sort. Recursively split the array into two halves, sort each half, and then merge them. During merge, when we see equal elements we always take from the left subarray first. That preserves stability. The recursion depth is O(log n) and each level merges O(n) elements.",
-      photo: {
-        src: "images/merge-sort.png",
-        alt: "Illustration of merge sort splitting and merging arrays.",
-        label: "Divide & conquer",
-        caption: "Splitting the problem until the base case is trivial."
-      },
-      code: `function mergeSort(arr) {
-  if (arr.length <= 1) return arr;
-  const mid = Math.floor(arr.length / 2);
-  const left = mergeSort(arr.slice(0, mid));
-  const right = mergeSort(arr.slice(mid));
-  return merge(left, right);
-}
+        "The system must calculate the fastest route between stops and also maintain a table of travel times between every pair of locations for planning schedules. This helps passengers receive accurate real-time information.",
+      
+       Dijkstra’s 
+        `vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
 
-function merge(a, b) {
-  const res = [];
-  let i = 0, j = 0;
-  while (i < a.length && j < b.length) {
-    if (a[i] <= b[j]) {
-      res.push(a[i++]);   // stable when equal
-    } else {
-      res.push(b[j++]);
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
     }
-  }
-  return res.concat(a.slice(i), b.slice(j));
-}`,
+
+    return dist;  
+}
+Floyd–Warshall
+void floydWarshall(vector<vector<int>>& d) {
+    int n = d.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+}
+`,
  
     },
     {
-      id: "binary-search",
+      id: "3",
       number: 3,
-      title: "Binary Search in Sorted Array",
-      categoryTag: "Searching",
-      shortTag: "Binary Search",
+      title: "Smart Water Supply & Purification Unit",
+      categoryTag: "",
+      shortTag: "Prim’s+AVL Tree",
       time: "O(log n)",
       space: "O(1)",
-      algorithm: "Iterative binary search",
+      algorithm: "Prim’s+AVL Tree",
       sdgs: [
-        "SDG 4: Quality Education",
-        "SDG 9: Industry, Innovation and Infrastructure"
+        "SDG 6 – Clean Water & Sanitation Ensures safe water supply and efficient usage.",
+        "SDG 9 – Industry, Innovation & Infrastructure Builds smart pipeline and distribution systems.",
+        "SDG 11 – Sustainable Cities & Communities Supports sustainable water management.",
       ],
       problemText:
-        "Given a sorted array of integers and a target value, return its index if found, otherwise return −1.",
+        "Water needs to be delivered from purification units to homes and public places. If the pipeline layout is not optimized, a lot of money is wasted. Also, every household’s water usage must be recorded quickly and accurately.",
       solutionText:
-        "Maintain two pointers lo and hi. Repeatedly pick mid = floor((lo + hi)/2). If arr[mid] equals target we return mid. If arr[mid] is smaller, we search in the right half; otherwise in the left half. When lo crosses hi the element is absent.",
-      photo: {
-        src: "images/binary-search.png",
-        alt: "Binary search narrowing the search interval.",
-        label: "Halving the search space",
-        caption: "Each step discards half of the remaining interval."
-      },
-      code: `function binarySearch(arr, target) {
-  let lo = 0, hi = arr.length - 1;
-  while (lo <= hi) {
-    const mid = lo + Math.floor((hi - lo) / 2);
-    if (arr[mid] === target) return mid;
-    if (arr[mid] < target) lo = mid + 1;
-    else hi = mid - 1;
-  }
-  return -1;
-}`,
+        "The city pipeline network should be built using the cheapest possible layout. At the same time, water usage data needs to be stored in a structure that allows fast insertions and quick lookups.",
+      
+       `Prim’s
+       vector<int> prim(vector<vector<int>>& g) {
+    int n = g.size();
+    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
+    key[0] = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        int u = -1;
+        for (int v = 0; v < n; v++)
+            if (!used[v] && (u == -1 || key[v] < key[u]))
+                u = v;
+
+        used[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
+                key[v] = g[u][v];
+                parent[v] = u;
+            }
+    }
+    return parent;  
+}
+AVL Tree
+struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+`,
  
     },
     {
-      id: "dijkstra",
+      id: "4",
       number: 4,
-      title: "Shortest Path in Weighted Graph",
-      categoryTag: "Graph",
-      shortTag: "Dijkstra",
+      title: "Renewable Energy Company (Solar/Wind Solutions)",
+      categoryTag: "",
+      shortTag: "Kruskal’s+Merge",
       time: "O((V+E) log V) using a heap",
       space: "O(V)",
-      algorithm: "Dijkstra's algorithm with priority queue",
+      algorithm: "Kruskal’s+Merge",
       sdgs: [
-        "SDG 11: Sustainable Cities and Communities",
-        "SDG 9: Industry, Innovation and Infrastructure"
+        "SDG 7 – Affordable & Clean Energy Promotes clean and renewable energy sources.",
+        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks.",
+        "SDG 13 – Climate Action Reduces dependence on fossil fuels.",
       ],
       problemText:
-        "Given a directed graph with non-negative edge weights and a source vertex, compute the minimum distance from the source to every other vertex.",
+        "Solar panels and windmills must be connected through cables. If cables are placed inefficiently, the overall installation becomes expensive. Also, customers must be managed based on their energy usage.",
       solutionText:
-        "We maintain a distance array initialised to ∞ except dist[src] = 0. A min-priority queue (distance, node) always picks the vertex with the smallest tentative distance. For each extracted node we relax all outgoing edges. If we find a shorter path to a neighbour, we update dist and push the new pair into the queue.",
-      photo: {
-        src: "images/dijkstra.png",
-        alt: "Graph with highlighted shortest path tree.",
-        label: "Routing network",
-        caption: "Model for optimising routes in transportation or networks."
-      },
-      code: `// adj[u] = array of { v, w } edges
-function dijkstra(adj, src) {
-  const n = adj.length;
-  const dist = Array(n).fill(Infinity);
-  dist[src] = 0;
+        "To reduce installation costs, the system must find the cheapest way to connect energy units. Customer usage information can then be sorted to plan maintenance, bills, or upgrades.",
+     `Kruskal’s
+     struct Edge { int u, v, w; };
 
-  const pq = []; // simple priority queue via sorting (demo)
-  pq.push([0, src]);
+int find(int x, vector<int>& p) {
+    return p[x] == x ? x : p[x] = find(p[x], p);
+}
 
-  while (pq.length) {
-    pq.sort((a, b) => a[0] - b[0]);
-    const [d, u] = pq.shift();
-    if (d !== dist[u]) continue;
+void unite(int a, int b, vector<int>& p) {
+    a = find(a, p); b = find(b, p);
+    if (a != b) p[b] = a;
+}
 
-    for (const { v, w } of adj[u]) {
-      if (dist[v] > d + w) {
-        dist[v] = d + w;
-        pq.push([dist[v], v]);
-      }
-    }
-  }
-  return dist;
-}`,
+vector<Edge> kruskal(vector<Edge>& e, int n) {
+    sort(e.begin(), e.end(), [](auto& a, auto& b){ return a.w < b.w; });
+    vector<int> p(n); iota(p.begin(), p.end(), 0);
+    vector<Edge> mst;
+
+    for (auto& x : e)
+        if (find(x.u, p) != find(x.v, p)) {
+            unite(x.u, x.v, p);
+            mst.push_back(x);
+        }
+
+    return mst;
+}
+Merge
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+
+`,
  
     },
     {
-      id: "kadane",
+      id: 5,
       number: 5,
-      title: "Maximum Subarray Sum",
-      categoryTag: "DP",
-      shortTag: "Kadane",
+      title: "Food Processing & Packaging Unit",
+      categoryTag: "",
+      shortTag: "Insertion+AVL Tree",
       time: "O(n)",
       space: "O(1)",
-      algorithm: "Kadane's algorithm (DP over prefix)",
+      algorithm: "Insertion+AVL Tree",
       sdgs: [
-        "SDG 8: Decent Work and Economic Growth",
-        "SDG 9: Industry, Innovation and Infrastructure"
+        "SDG 2 – Zero Hunger Reduces food wastage and improves food availability.",
+        "SDG 12 – Responsible Consumption & Production Ensures efficient food management and processing.",
+        "SDG 3 – Good Health & Well-being Ensures safe and fresh food handling.",
       ],
       problemText:
-        "Given an array of positive and negative integers, find the maximum possible sum of a contiguous subarray.",
+        "Food items like milk, grains, and fruits have expiry dates. The factory must ensure that items with earlier expiry dates are processed and sold first. Also, the inventory needs to be managed efficiently.",
       solutionText:
-        "We maintain current sum cur and best answer best. At each element x we decide whether to start a new subarray at x (cur = x) or extend the previous one (cur = cur + x). best is updated as max(best, cur) every step. This is essentially DP with state = best sum ending at position i.",
-      photo: {
-        src: "images/kadane.png",
-        alt: "Plot of an array with the best subarray highlighted.",
-        label: "Signal window",
-        caption: "Picking the most profitable contiguous interval."
-      },
-      code: `function maxSubArray(nums) {
-  let best = -Infinity;
-  let cur = 0;
-  for (const x of nums) {
-    cur = Math.max(x, cur + x);
-    best = Math.max(best, cur);
-  }
-  return best;
-}`,
+        "Food items are sorted by freshness so that older items are not wasted. Inventory must also be tracked using a structure that supports quick searching for any product.",
+     
+       `Insertion
+       void insertionSort(vector<int>& a) {
+    for (int i = 1; i < a.size(); i++) {
+        int key = a[i], j = i - 1;
+        while (j >= 0 && a[j] > key)
+            a[j-- + 1] = a[j];
+        a[j + 1] = key;
+    }
+}
+AVL Tree
+struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+`,
  
     },
     {
-      id: "bfs-unweighted",
+      id: 6,
       number: 6,
-      title: "Shortest Path in Unweighted Graph",
-      categoryTag: "Graph",
-      shortTag: "BFS",
+      title: "Co-working Space / Startup Hub",
+      categoryTag: "",
+      shortTag: "AVL Tree+Merge Sort",
       time: "O(V + E)",
       space: "O(V)",
-      algorithm: "Breadth-First Search",
+      algorithm: "AVL Tree+Merge Sort",
       sdgs: [
-        "SDG 11: Sustainable Cities and Communities",
-        "SDG 9: Industry, Innovation and Infrastructure"
+        "SDG 8 – Decent Work & Economic Growth Encourages entrepreneurship and job creation.",
+        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment.",
+        "SDG 11 – Sustainable Cities & Communities Efficient use of shared space and resources.",
       ],
       problemText:
-        "Given an unweighted graph and a source node, compute the minimum number of edges required to reach every other node.",
+        "A co-working space has many seats, rooms, and time slots available for booking. Managing these bookings manually leads to confusion and double-booking.",
       solutionText:
-        "For unweighted graphs, BFS from the source explores nodes in layers. We set dist[src] = 0, push src into a queue and expand neighbours. When visiting a node for the first time, we assign dist[neigh] = dist[cur] + 1 and push it. When the queue empties, dist holds the shortest path length in edges.",
-      photo: {
-        src: "images/bfs.png",
-        alt: "BFS frontier expanding layer by layer.",
-        label: "Wave expansion",
-        caption: "Layered exploration of reachable nodes."
-      },
-      code: `function bfsShortest(adj, src) {
-  const n = adj.length;
-  const dist = Array(n).fill(-1);
-  const q = [];
-  q.push(src);
-  dist[src] = 0;
+        "A balanced tree can store all bookings in sorted order so that conflicts can be detected. Sorting time slots is also useful when generating daily usage reports.",
+     
+       `AVLTree
+       struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
 
-  while (q.length) {
-    const u = q.shift();
-    for (const v of adj[u]) {
-      if (dist[v] === -1) {
-        dist[v] = dist[u] + 1;
-        q.push(v);
-      }
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
     }
-  }
-  return dist;
-}`,
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+Merge Sort
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
  
     },
     {
-      id: "cycle-directed",
+      id: 7,
       number: 7,
-      title: "Cycle Detection in Directed Graph",
-      categoryTag: "Graph",
-      shortTag: "DFS + stack",
+      title: "Construction & Infrastructure Services",
+      categoryTag: "",
+      shortTag: "Prim’s+Dijkstra’s",
       time: "O(V + E)",
       space: "O(V)",
-      algorithm: "DFS with recursion stack",
+      algorithm: "Prim’s+Dijkstra’s",
       sdgs: [
-        "SDG 4: Quality Education",
-        "SDG 16: Peace, Justice and Strong Institutions"
+        "SDG 9 – Industry, Innovation & Infrastructure Builds robust and efficient infrastructure.",
+        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development.",
+        "SDG 13 – Climate Action Reduces emissions through optimized routes and networks.",
       ],
       problemText:
-        "Given a directed graph, determine if it contains a cycle. This is used, for example, to detect invalid prerequisite structures.",
+        "Construction companies need to design roads, drainage networks, and pipelines at minimum cost. They also need to transport materials from one project site to another efficiently.",
       solutionText:
-        "We run DFS and track two arrays: visited and inStack. When we start exploring a node, we mark it visited and inStack. During DFS, if we ever see an edge to a node that is currently inStack, we have a back-edge and thus a cycle. When we finish a node, we remove it from inStack.",
-      photo: {
-        src: "images/cycle.png",
-        alt: "Directed graph with a cycle highlighted.",
-        label: "Dependency loop",
-        caption: "Detecting circular dependencies in task graphs."
-      },
-      code: `function hasCycleDirected(adj) {
-  const n = adj.length;
-  const vis = Array(n).fill(false);
-  const inStack = Array(n).fill(false);
+        "We can build the city’s infrastructure cost-effectively using an MST approach. For movement of vehicles and materials, shortest routes must be calculated.",
+      
+      `Prim’s
+      vector<int> prim(vector<vector<int>>& g) {
+    int n = g.size();
+    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
+    key[0] = 0;
 
-  function dfs(u) {
-    vis[u] = true;
-    inStack[u] = true;
-    for (const v of adj[u]) {
-      if (!vis[v] && dfs(v)) return true;
-      if (inStack[v]) return true;
+    for (int i = 0; i < n - 1; i++) {
+        int u = -1;
+        for (int v = 0; v < n; v++)
+            if (!used[v] && (u == -1 || key[v] < key[u]))
+                u = v;
+
+        used[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
+                key[v] = g[u][v];
+                parent[v] = u;
+            }
     }
-    inStack[u] = false;
-    return false;
-  }
+    return parent;  
+}
+Dijkstra’s
+vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
 
-  for (let i = 0; i < n; i++) {
-    if (!vis[i] && dfs(i)) return true;
-  }
-  return false;
-}`,
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+`,
  
     },
     {
-      id: "lis",
+      id: "8",
       number: 8,
-      title: "Longest Increasing Subsequence",
-      categoryTag: "DP",
-      shortTag: "LIS",
+      title: "Emergency & Security Services Company",
+      categoryTag: "",
+      shortTag: "Dijkstra’s+Warshall’s",
       time: "O(n log n)",
       space: "O(n)",
-      algorithm: "Patience sorting + binary search",
+      algorithm: "Dijkstra’s+Warshall’s",
       sdgs: [
-        "SDG 4: Quality Education",
-        "SDG 9: Industry, Innovation and Infrastructure"
+        "SDG 3 – Good Health & Well-being Provides fast emergency response and saves lives.",
+        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management.",
+        "SDG 16 – Peace, Justice & Strong Institutions Enhances law enforcement and public security.",
       ],
       problemText:
-        "Given an array of integers, find the length of the longest strictly increasing subsequence (not necessarily contiguous).",
+        "Ambulances, fire trucks, and police vehicles must reach the destination immediately. The city also has different security zones that need to be monitored to know which areas are connected or isolated.",
       solutionText:
-        "We maintain an array tails where tails[k] is the smallest possible tail value of an increasing subsequence of length k+1. For each x, we binary-search the first position pos in tails where tails[pos] ≥ x and set tails[pos] = x. If no such position exists, we append x. The length of tails after processing all elements is the LIS length.",
-      photo: {
-        src: "images/lis.png",
-        alt: "Cards being placed in piles, analogy to patience sorting.",
-        label: "Patience sorting",
-        caption: "Rearranging piles to track the best possible tails."
-      },
-      code: `function lengthOfLIS(nums) {
-  const tails = [];
-  for (const x of nums) {
-    let lo = 0, hi = tails.length;
-    while (lo < hi) {
-      const mid = (lo + hi) >> 1;
-      if (tails[mid] < x) lo = mid + 1;
-      else hi = mid;
+        "Shortest routes save lives during emergencies. Connectivity analysis helps identify vulnerable or unmonitored areas.",
+     
+      `Dijkstra’s
+      vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
     }
-    tails[lo] = x;
-  }
-  return tails.length;
-}`,
+
+    return dist;  
+}
+Warshall’s
+void warshall(vector<vector<int>>& r) {
+    int n = r.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                r[i][j] = r[i][j] || (r[i][k] && r[k][j]);
+}
+`,
  
     },
     {
-      id: "knapsack",
+      id: 9,
       number: 9,
-      title: "0/1 Knapsack",
-      categoryTag: "DP",
-      shortTag: "Knapsack",
+      title: "Online Delivery & Logistics Hub",
+      categoryTag: "",
+      shortTag: "Dijkstra’s+Merge",
       time: "O(n·W)",
       space: "O(W)",
-      algorithm: "1D DP over capacity",
+      algorithm: "Dijkstra’s+Merge",
       sdgs: [
-        "SDG 12: Responsible Consumption and Production",
-        "SDG 8: Decent Work and Economic Growth"
+        "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities.",
+        "SDG 9 – Industry, Innovation & Infrastructure Uses technology for efficient logistics.",
+        "SDG 12 – Responsible Consumption & Production Optimizes delivery, reduces fuel waste.",
       ],
       problemText:
-        "Given weights and values of n items, and a maximum capacity W, choose a subset of items with maximum total value such that total weight does not exceed W. Each item can be taken at most once.",
+        "Packages must be delivered quickly and in proper order of priority. Delivery riders must follow the shortest routes to avoid delays and fuel waste.",
       solutionText:
-        "We use DP on capacity. Let dp[w] be the maximum value achievable with capacity w. For each item i we iterate w from W down to weight[i]. At each step we consider taking the item: dp[w] = max(dp[w], dp[w − weight[i]] + value[i]). Backward iteration ensures each item is used at most once.",
-      photo: {
-        src: "images/knapsack.png",
-        alt: "Backpack with items representing weights and values.",
-        label: "Resource allocation",
-        caption: "Choosing the most valuable subset under constraints."
-      },
-      code: `function knapSack(cap, wt, val) {
-  const dp = Array(cap + 1).fill(0);
-  for (let i = 0; i < wt.length; i++) {
-    for (let w = cap; w >= wt[i]; w--) {
-      dp[w] = Math.max(dp[w], dp[w - wt[i]] + val[i]);
+        "Packages are sorted based on delivery time, and optimal routes are calculated to speed up delivery.", 
+      ` Dijkstra’s
+      vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
     }
-  }
-  return dp[cap];
-}`,
+
+    return dist;  
+}
+Merge
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
  
     },
     {
-      id: "dsu-components",
+      id: 10,
       number: 10,
-      title: "Connected Components (Union–Find)",
-      categoryTag: "DSU",
-      shortTag: "Union–Find",
+      title: "Sports & Recreation Center",
+      categoryTag: "",
+      shortTag: "Merge Sort+Binary Tree",
       time: "≈O(α(n)) per op",
       space: "O(n)",
-      algorithm: "Disjoint Set Union (Union–Find)",
+      algorithm: "Merge Sort+Binary Tree",
       sdgs: [
-        "SDG 9: Industry, Innovation and Infrastructure",
-        "SDG 11: Sustainable Cities and Communities"
+        "SDG 3 – Good Health & Well-being Promotes physical activity and healthy lifestyles.",
+        "SDG 4 – Quality Education Provides training, coaching, and skill development.",
+        "SDG 11 – Sustainable Cities & Communities Encourages community engagement through sports.",
       ],
       problemText:
-        "Given n nodes labelled 0 to n − 1 and a list of undirected edges, count the number of connected components.",
+        "Sports centers maintain player details, match scores, coaching information, and event schedules. Players must be ranked and sorted properly.",
       solutionText:
-        "We initialise each node as its own parent. For every edge (u, v) we union their sets. Union-by-rank and path compression keep trees shallow. At the end, we count how many distinct roots exist; that number equals the number of connected components.",
-      photo: {
-        src: "images/dsu.png",
-        alt: "Clusters of nodes being merged by union operations.",
-        label: "Clusters merging",
-        caption: "Tracking which nodes belong to the same component."
-      },
-      code: `function countComponents(n, edges) {
-  const parent = Array.from({ length: n }, (_, i) => i);
-  const rank = Array(n).fill(0);
+        "Players’ scores can be sorted to generate rankings. Member and event records can be stored in a tree for fast retrieval and updates.",
+        ` MergeSort
+        void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
 
-  function find(x) {
-    if (parent[x] !== x) parent[x] = find(parent[x]);
-    return parent[x];
-  }
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
 
-  function unite(a, b) {
-    a = find(a);
-    b = find(b);
-    if (a === b) return;
-    if (rank[a] < rank[b]) [a, b] = [b, a];
-    parent[b] = a;
-    if (rank[a] === rank[b]) rank[a]++;
-  }
+    vector<int> t;
+    int i = l, j = m + 1;
 
-  for (const [u, v] of edges) {
-    unite(u, v);
-  }
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
 
-  const roots = new Set();
-  for (let i = 0; i < n; i++) {
-    roots.add(find(i));
-  }
-  return roots.size;
-}`,
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+Binary Tre
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int x) : data(x), left(NULL), right(NULL) {}
+};
+
+Node* insert(Node* root, int x) {
+    if (!root) return new Node(x);
+    if (x < root->data) root->left = insert(root->left, x);
+    else root->right = insert(root->right, x);
+    return root;
+}
+
+bool search(Node* root, int x) {
+    if (!root) return false;
+    if (root->data == x) return true;
+    return x < root->data ? search(root->left, x) : search(root->right, x);
+}
+`,
  
     }
   ];
