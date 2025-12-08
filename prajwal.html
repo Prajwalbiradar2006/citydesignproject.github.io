@@ -580,7 +580,7 @@
       algorithm: "Merge Sort,Dijkstra’s",
       sdgs: [
         "SDG 11 – Sustainable Cities & Communities Reduces waste in the city and improves cleanliness",
-        "SDG 12 – Responsible Consumption & Production Promotes recycling and proper waste management"
+        "SDG 12 – Responsible Consumption & Production Promotes recycling and proper waste management",
         "SDG 13 – Climate Action Reduces pollution and carbon emissions"
       ],
       problemText:
@@ -642,7 +642,7 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
       algorithm: "Dijkstra’s+Floyd–Warshall",
       sdgs: [
         "SDG 9 – Industry, Innovation & Infrastructure Improves transport infrastructure using technology",
-        "SDG 11 – Sustainable Cities & Communities Promotes efficient and eco-friendly public transport"
+        "SDG 11 – Sustainable Cities & Communities Promotes efficient and eco-friendly public transport",
         "SDG 13 – Climate Action Reduces carbon emissions through better mobility"
       ],
       problemText:
@@ -651,7 +651,7 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
         "The system must calculate the fastest route between stops and also maintain a table of travel times between every pair of locations for planning schedules. This helps passengers receive accurate real-time information.",
       
        
-        `Dijkstra’s 
+        code:`Dijkstra’s 
         vector<int> dijkstra(vector<vector<int>>& g, int src) {
     int n = g.size();
     vector<int> dist(n, INT_MAX), vis(n, 0);
@@ -694,7 +694,7 @@ void floydWarshall(vector<vector<int>>& d) {
       algorithm: "Prim’s+AVL Tree",
       sdgs: [
         "SDG 6 – Clean Water & Sanitation Ensures safe water supply and efficient usage",
-        "SDG 9 – Industry, Innovation & Infrastructure Builds smart pipeline and distribution systems"
+        "SDG 9 – Industry, Innovation & Infrastructure Builds smart pipeline and distribution systems",
         "SDG 11 – Sustainable Cities & Communities Supports sustainable water management"
       ],
       problemText:
@@ -702,7 +702,7 @@ void floydWarshall(vector<vector<int>>& d) {
       solutionText:
         "The city pipeline network should be built using the cheapest possible layout. At the same time, water usage data needs to be stored in a structure that allows fast insertions and quick lookups.",
       
-       `Prim’s
+       code:`Prim’s
        vector<int> prim(vector<vector<int>>& g) {
     int n = g.size();
     vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
@@ -788,14 +788,14 @@ Node* insertAVL(Node* n, int v) {
       algorithm: "Kruskal’s+Merge",
       sdgs: [
         "SDG 7 – Affordable & Clean Energy Promotes clean and renewable energy sources",
-        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks"
-        "SDG 13 – Climate Action Reduces dependence on fossil fuels"
+        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks",
+        "SDG 13 - Climate Action Reduces dependence on fossil fuels"
       ],
       problemText:
         "Solar panels and windmills must be connected through cables. If cables are placed inefficiently, the overall installation becomes expensive. Also, customers must be managed based on their energy usage.",
       solutionText:
         "To reduce installation costs, the system must find the cheapest way to connect energy units. Customer usage information can then be sorted to plan maintenance, bills, or upgrades.",
-     `Kruskal’s
+     code:`Kruskal’s
      struct Edge { int u, v, w; };
 
 int find(int x, vector<int>& p) {
@@ -855,14 +855,14 @@ void mergeSort(vector<int>& a, int l, int r) {
       algorithm: "Insertion+AVL Tree",
       sdgs: [
         "SDG 2 – Zero Hunger Reduces food wastage and improves food availability",
-        "SDG 12 – Responsible Consumption & Production Ensures efficient food management and processing"
+        "SDG 12 – Responsible Consumption & Production Ensures efficient food management and processing",
         "SDG 3 – Good Health & Well-being Ensures safe and fresh food handling"
       ],
       problemText:
         "Food items like milk, grains, and fruits have expiry dates. The factory must ensure that items with earlier expiry dates are processed and sold first. Also, the inventory needs to be managed efficiently.",
       solutionText:
         "Food items are sorted by freshness so that older items are not wasted. Inventory must also be tracked using a structure that supports quick searching for any product.",
-     
+     code:
        `Insertion
        void insertionSort(vector<int>& a) {
     for (int i = 1; i < a.size(); i++) {
@@ -936,14 +936,14 @@ Node* insertAVL(Node* n, int v) {
       algorithm: "AVL Tree+Merge Sort",
       sdgs: [
         "SDG 8 – Decent Work & Economic Growth Encourages entrepreneurship and job creation",
-        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment"
+        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment",
         "SDG 11 – Sustainable Cities & Communities Efficient use of shared space and resources"
       ],
       problemText:
         "A co-working space has many seats, rooms, and time slots available for booking. Managing these bookings manually leads to confusion and double-booking.",
       solutionText:
         "A balanced tree can store all bookings in sorted order so that conflicts can be detected. Sorting time slots is also useful when generating daily usage reports.",
-     
+     code:
        `AVLTree
        struct Node {
     int v, h;
@@ -1028,7 +1028,7 @@ void mergeSort(vector<int>& a, int l, int r) {
       algorithm: "Prim’s+Dijkstra’s",
       sdgs: [
         "SDG 9 – Industry, Innovation & Infrastructure Builds robust and efficient infrastructure",
-        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development"
+        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development",
         "SDG 13 – Climate Action Reduces emissions through optimized routes and networks"
       ],
       problemText:
@@ -1036,7 +1036,7 @@ void mergeSort(vector<int>& a, int l, int r) {
       solutionText:
         "We can build the city’s infrastructure cost-effectively using an MST approach. For movement of vehicles and materials, shortest routes must be calculated.",
       
-      `Prim’s
+      code:`Prim’s
       vector<int> prim(vector<vector<int>>& g) {
     int n = g.size();
     vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
@@ -1093,7 +1093,7 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
       algorithm: "Dijkstra’s+Warshall’s",
       sdgs: [
         "SDG 3 – Good Health & Well-being Provides fast emergency response and saves lives",
-        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management"
+        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management",
         "SDG 16 – Peace, Justice & Strong Institutions Enhances law enforcement and public security"
       ],
       problemText:
@@ -1101,7 +1101,7 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
       solutionText:
         "Shortest routes save lives during emergencies. Connectivity analysis helps identify vulnerable or unmonitored areas.",
      
-      `Dijkstra’s
+      code:`Dijkstra’s
       vector<int> dijkstra(vector<vector<int>>& g, int src) {
     int n = g.size();
     vector<int> dist(n, INT_MAX), vis(n, 0);
@@ -1144,14 +1144,14 @@ void warshall(vector<vector<int>>& r) {
       algorithm: "Dijkstra’s+Merge",
       sdgs: [
         "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities",
-        "SDG 9 – Industry, Innovation & Infrastructure Uses technology for efficient logistics"
+        "SDG 9 – Industry, Innovation & Infrastructure Uses technology for efficient logistics",
         "SDG 12 – Responsible Consumption & Production Optimizes delivery, reduces fuel waste"
       ],
       problemText:
         "Packages must be delivered quickly and in proper order of priority. Delivery riders must follow the shortest routes to avoid delays and fuel waste.",
       solutionText:
         "Packages are sorted based on delivery time, and optimal routes are calculated to speed up delivery.", 
-      ` Dijkstra’s
+      code:` Dijkstra’s
       vector<int> dijkstra(vector<vector<int>>& g, int src) {
     int n = g.size();
     vector<int> dist(n, INT_MAX), vis(n, 0);
@@ -1206,14 +1206,14 @@ void mergeSort(vector<int>& a, int l, int r) {
       algorithm: "Merge Sort+Binary Tree",
       sdgs: [
         "SDG 3 – Good Health & Well-being Promotes physical activity and healthy lifestyles",
-        "SDG 4 – Quality Education Provides training, coaching, and skill development"
+        "SDG 4 – Quality Education Provides training, coaching, and skill development",
         "SDG 11 – Sustainable Cities & Communities Encourages community engagement through sports"
       ],
       problemText:
         "Sports centers maintain player details, match scores, coaching information, and event schedules. Players must be ranked and sorted properly.",
       solutionText:
         "Players’ scores can be sorted to generate rankings. Member and event records can be stored in a tree for fast retrieval and updates.",
-        ` MergeSort
+        code:` MergeSort
         void mergeSort(vector<int>& a, int l, int r) {
     if (l >= r) return;
 
