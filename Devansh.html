@@ -1,292 +1,1458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Additional Urban Business Ideas – SDG 11</title>
-<style>
-    :root{
-        --accent:#0b73c9;
-        --card-bg:#ffffff;
-        --page-bg:#f4f7fb;
-        --tag-bg:#ffe08c;
-        --muted:#555;
+  <meta charset="UTF-8" />
+  <title>Algorithms Portfolio | Your Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --surface: #020617;
+      --border-subtle: #1f2937;
+      --border-strong: #374151;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.16);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: "Fira Code", Consolas, Menlo, monospace;
     }
-    body{
-        font-family: Arial, Helvetica, sans-serif;
-        margin:0;
-        background:var(--page-bg);
-        color:var(--muted);
+
+    * {
+      box-sizing: border-box;
     }
-    .header{
-        background:var(--accent);
-        color:#fff;
-        padding:28px 18px;
-        text-align:center;
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #020617 0, #000000 55%, #020617 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
     }
-    .header h1{margin:0;font-size:28px}
-    .header p{margin:6px 0 0;opacity:.95}
-    .container{
-        width:92%;
-        max-width:1100px;
-        margin:26px auto;
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
-    .grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-        gap:20px;
+    a:hover {
+      text-decoration: underline;
     }
-    .card{
-        background:var(--card-bg);
-        border-radius:12px;
-        padding:18px;
-        box-shadow:0 6px 18px rgba(11,115,201,0.08);
-        border:1px solid rgba(11,115,201,0.04);
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .card h2{
-        margin:0 0 8px;
-        color:var(--accent);
-        font-size:20px;
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(15,23,42,0.96), rgba(15,23,42,0.92));
+      border-bottom: 1px solid rgba(75, 85, 99, 0.8);
     }
-    .sdg-tag{
-        display:inline-block;
-        background:var(--tag-bg);
-        padding:6px 10px;
-        border-radius:8px;
-        font-weight:700;
-        color:#333;
-        margin-bottom:10px;
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
-    .section-title{font-weight:700;margin:10px 0 6px;color:#222}
-    ul{margin:6px 0 0 18px;padding:0}
-    li{margin-bottom:6px;line-height:1.4;color:#444}
-    .footer{
-        text-align:center;
-        padding:18px 8px 40px;
-        color:#666;
-        font-size:14px;
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    @media (max-width:420px){
-        .header h1{font-size:20px}
+
+    .logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, #f97316, #38bdf8, #8b5cf6, #f97316);
+      padding: 2px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
     }
-</style>
+
+    .logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+    }
+
+    .nav-title span:first-child {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .nav-title span:last-child {
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      background: rgba(30, 64, 175, 0.25);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      padding: 5px 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.22), transparent 55%);
+      font-size: 11px;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    .nav-pill span.icon {
+      font-size: 14px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), #020617);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-header {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .sidebar-header strong {
+      color: #e5e7eb;
+      font-size: 13px;
+    }
+
+    .problem-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      max-height: 480px;
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #4b5563 transparent;
+    }
+
+    .problem-list::-webkit-scrollbar {
+      width: 5px;
+    }
+    .problem-list::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 999px;
+    }
+
+    .problem-item {
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15,23,42,0.92);
+      padding: 7px 8px;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
+      transition: border 0.12s, background 0.12s, transform 0.08s;
+    }
+
+    .problem-item:hover {
+      border-color: rgba(96, 165, 250, 0.9);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .problem-item.active {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      color: #e5e7eb;
+    }
+
+    .problem-name {
+      flex: 1;
+    }
+
+    .problem-tag {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .sidebar-footer {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 6px;
+    }
+
+    /* Main problem view */
+    .problem-view {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(15,23,42,0.95), #020617);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .crumbs {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .crumbs span {
+      color: #e5e7eb;
+    }
+
+    .problem-header-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .problem-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .problem-id-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .problem-title-block h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .problem-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .problem-meta-row strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .algo-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(96, 165, 250, 0.9);
+      font-size: 11px;
+      color: #bfdbfe;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .sdg-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 3px;
+    }
+
+    .sdg-chip {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(45, 212, 191, 0.8);
+      background: rgba(15, 23, 42, 0.98);
+      color: #a7f3d0;
+    }
+
+    .problem-actions-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-sm {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      padding: 5px 10px;
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-sm:hover {
+      background: rgba(15, 23, 42, 1);
+      color: #e5e7eb;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 10px 10px 9px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-header {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header span.label {
+      font-weight: 500;
+      color: #e5e7eb;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 12px;
+    }
+
+    .card-body {
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .code-card {
+      font-family: var(--font-mono);
+    }
+
+    pre {
+      margin: 4px 0 0;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-height: 260px;
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #4b5563 transparent;
+    }
+
+    pre::-webkit-scrollbar {
+      width: 5px;
+    }
+    pre::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 999px;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      min-height: 150px;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), #020617);
+    }
+
+    .photo-wrapper img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .photo-overlay {
+      position: relative;
+      padding: 8px 8px 6px;
+      background: linear-gradient(to top, rgba(2,6,23,0.96), transparent 70%);
+      font-size: 11px;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .photo-caption-sub {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .photo-tag {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15,23,42,0.96);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 6px 16px 18px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    footer span.highlight {
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<header class="header">
-    <h1>Additional Urban Business Ideas — SDG 11 Contributions</h1>
-    <p>10 new business concepts for a sustainable city — Prajwal Biradar</p>
-</header>
-
-<main class="container">
-    <div class="grid">
-
-        <!-- 1 Smart Parking & Traffic Automation -->
-        <article class="card">
-            <h2>Smart Parking & Traffic Automation System</h2>
-            <div class="sdg-tag">SDG 11.2 – Sustainable Transport & Mobility</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Real-time parking availability and dynamic pricing to reduce time spent searching for parking (cut idling & emissions).</li>
-                <li>Traffic-signal coordination and adaptive routing to reduce congestion on main corridors.</li>
-                <li>Integrates with public transport apps to encourage multi-modal travel.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Solar-powered parking sensors and low-energy signage.</li>
-                <li>Priority for EV & carpool vehicles to promote cleaner transport.</li>
-                <li>Data-driven planning to identify infrastructure improvements that reduce emissions.</li>
-            </ul>
-        </article>
-
-        <!-- 2 Urban Farming & Hydroponics -->
-        <article class="card">
-            <h2>Urban Farming & Hydroponics Center</h2>
-            <div class="sdg-tag">SDG 11.A – Urban–Rural Economic Links</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Fresh vegetables and herbs grown locally, reducing food miles and supply-chain vulnerability.</li>
-                <li>Creates jobs in urban agriculture, training, and micro-enterprise (farm-to-market stalls).</li>
-                <li>Educational demonstration farms for schools and communities.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Soilless hydroponic systems that use up to 90% less water than open-field farming.</li>
-                <li>LED horticultural lighting on a timed, energy-efficient schedule powered by rooftop solar.</li>
-                <li>Composting of plant waste and local reuse of effluents after safe treatment.</li>
-            </ul>
-        </article>
-
-        <!-- 3 Public EV Charging & Battery Swap -->
-        <article class="card">
-            <h2>Public EV Charging & Battery Swap Station</h2>
-            <div class="sdg-tag">SDG 11.6 & 11.2 – Clean Transport</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Enables wider EV adoption by reducing range anxiety with fast chargers and battery-swap options.</li>
-                <li>Supports commercial fleets (taxis, delivery) to electrify, lowering urban emissions.</li>
-                <li>Generates maintenance & technician jobs in green mobility services.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Chargers paired with local solar+storage to lower grid peaks and CO₂ footprint.</li>
-                <li>Recycling program for used batteries and safe disposal protocols.</li>
-                <li>Smart scheduling to reduce idle charging and grid load.</li>
-            </ul>
-        </article>
-
-        <!-- 4 Smart Street Lighting & Electrical Maintenance -->
-        <article class="card">
-            <h2>Smart Street Lighting & Electrical Maintenance Unit</h2>
-            <div class="sdg-tag">SDG 11.6 – Energy Efficiency</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Installs LED streetlights with motion sensors and dimming to reduce nighttime energy use.</li>
-                <li>Provides quick fault detection & remote maintenance to keep public spaces safe and lit.</li>
-                <li>Offers retrofitting services to upgrade old infrastructure across neighborhoods.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Solar + battery micro-stations for remote / park lighting.</li>
-                <li>Use of long-life LED fixtures and recyclable components.</li>
-                <li>Data monitoring to optimize energy schedules by usage patterns.</li>
-            </ul>
-        </article>
-
-        <!-- 5 Digital Payment & FinTech Service -->
-        <article class="card">
-            <h2>Digital Payment & FinTech Service Center</h2>
-            <div class="sdg-tag">SDG 11.1 & 11.A – Inclusive Services</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Enables cashless payments across markets, transit, utilities, and vendors for convenience and transparency.</li>
-                <li>Provides micro-loans and digital financial literacy programs to small entrepreneurs.</li>
-                <li>Integrates municipal payments (property tax, water bills) into one app for citizens.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Low-energy server architecture and cloud-native services to reduce IT energy footprint.</li>
-                <li>Paperless billing & e-receipts to lower paper waste.</li>
-                <li>Community kiosks for digital inclusion where smartphone access is limited.</li>
-            </ul>
-        </article>
-
-        <!-- 6 Smart Drainage & Rainwater Harvesting -->
-        <article class="card">
-            <h2>Smart Drainage & Rainwater Harvesting System</h2>
-            <div class="sdg-tag">SDG 11.3 & 11.6 – Resilient Infrastructure</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Prevents urban flooding with real-time flow sensors and smart sluice control.</li>
-                <li>Collects rainwater for reuse in irrigation, toilets, and cooling systems.</li>
-                <li>Reduces stormwater pollution by adding bio-filtration nodes before discharge.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Permeable pavements and infiltration trenches to increase groundwater recharge.</li>
-                <li>Solar-powered sensor networks and low-energy valves.</li>
-                <li>Modular harvesting tanks that can be retrofitted to existing buildings.</li>
-            </ul>
-        </article>
-
-        <!-- 7 Public Transport Card & Ticketing System -->
-        <article class="card">
-            <h2>Public Transport Card & Ticketing System</h2>
-            <div class="sdg-tag">SDG 11.2 – Accessible Transport</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Single reloadable card/app works across buses, shuttles, metro, and parking for seamless travel.</li>
-                <li>Offers concession fares for students, seniors, and low-income riders to improve equity.</li>
-                <li>Gathers anonymized travel data to improve route planning and frequency.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Contactless payments reduce paper ticket waste.</li>
-                <li>Incentives for off-peak travel to smooth demand and energy use.</li>
-                <li>Low-power NFC cards and durable materials for long service life.</li>
-            </ul>
-        </article>
-
-        <!-- 8 Smart Health Monitoring & Telemedicine -->
-        <article class="card">
-            <h2>Smart Health Monitoring & Telemedicine Hub</h2>
-            <div class="sdg-tag">SDG 11.3 – Inclusive Urban Services</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Remote consultations, digital prescriptions, and home-monitoring for chronic patients.</li>
-                <li>Reduces pressure on hospitals by triaging non-emergency care online.</li>
-                <li>Maintains digital health records that travel with the patient across clinics.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Low-bandwidth telemedicine options for underserved areas.</li>
-                <li>Use of energy-efficient servers and secure cloud storage.</li>
-                <li>Community health-monitor kiosks to reduce unnecessary travel.</li>
-            </ul>
-        </article>
-
-        <!-- 9 Cultural & Event Management Center -->
-        <article class="card">
-            <h2>Cultural & Event Management Center</h2>
-            <div class="sdg-tag">SDG 11.7 – Inclusive & Safe Public Spaces</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Organizes festivals, markets, workshops and cultural events to strengthen social cohesion.</li>
-                <li>Provides income opportunities to local artisans and performers.</li>
-                <li>Manages public halls for community use, reducing private rentals and fragmentation.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Zero-waste event planning with reusable staging and compostable materials.</li>
-                <li>Local sourcing for food and materials to reduce transport emissions.</li>
-                <li>Event scheduling to minimize noise and disturbance to residential areas.</li>
-            </ul>
-        </article>
-
-        <!-- 10 City Security & Surveillance Network -->
-        <article class="card">
-            <h2>City Security & Surveillance Network</h2>
-            <div class="sdg-tag">SDG 11.7 – Safe Cities</div>
-
-            <div class="section-title">Contribution</div>
-            <ul>
-                <li>Monitors public spaces for safety incidents, coordinates with emergency services, and supports crime prevention.</li>
-                <li>Provides data for urban planners to identify risky locations and improve design.</li>
-                <li>Offers neighborhood watch integrations and public SOS buttons for quick assistance.</li>
-            </ul>
-
-            <div class="section-title">Sustainable Practices</div>
-            <ul>
-                <li>Edge-compute CCTV to reduce central server load and energy consumption.</li>
-                <li>Solar-powered camera poles in parks and remote areas.</li>
-                <li>Privacy-by-design policies: anonymized data, strict retention policies, and community oversight.</li>
-            </ul>
-        </article>
-
+<div class="app">
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <div class="logo-circle">
+          <div class="logo-inner">YN</div>
+        </div>
+        <div class="nav-title">
+          <span>Algorithm Notebook</span>
+          <span>Your Name</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="https://prajwalbiradar2006.github.io/citydesignproject.github.io/#">
+        <button class="nav-pill" id="glowToggle">
+          <span class="icon">🏠</span>
+          <span>Home</span>
+        </button>
+        </a>
+      </div>
     </div>
-</main>
+  </header>
 
-<footer class="footer">
-    Want these added to your main HTML page or converted into a printable PDF? Tell me & I'll update the code.
-</footer>
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <strong>10 Problems</strong><br />
+        Click a problem to open its dedicated page.
+      </div>
+      <ul class="problem-list" id="problemList">
+        <!-- Filled by JS -->
+      </ul>
+      <div class="sidebar-footer">
+        Tip: Each problem page shows<br />
+        <strong>Problem · Solution · SDG · Photo · Code</strong>.
+      </div>
+    </aside>
 
+    <!-- MAIN PROBLEM VIEW -->
+    <section class="problem-view" id="problemView">
+      <!-- Filled by JS -->
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span class="highlight">Your Name</span> · Algorithms Portfolio</span>
+    <span>Hosted on <span class="highlight">GitHub Pages</span>.</span>
+  </footer>
+</div>
+
+<script>
+  // ==== DATA: 10 PROBLEMS ====
+  const problems = [
+   {
+      id: 1,
+      number: 1,
+      title: " Smart Waste-to-Energy Plant",
+      categoryTag: "",
+      shortTag: "merge+dijkstra",
+      time: "O(n)",
+      space: "O(n)",
+      algorithm: "Merge Sort,Dijkstra’s",
+      sdgs: [
+        "SDG 11 – Sustainable Cities",
+        "SDG 7- Affordable & Clean Energy",
+        "SDG 13- Climate Action"
+      ],
+      problemText:
+        "Cities generate a lot of waste, and managing it efficiently is difficult. Waste from different areas arrives at different times, and trucks must take the best route to the plant. The plant also needs to separate waste types quickly.",
+      solutionText: "We first sort waste loads so the plant can process them in the right order. Then we find the shortest route for garbage trucks so fuel and time are saved. This makes the entire waste collection and processing cycle faster and cheaper.",
+      code: `merge sort
+      void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+
+Dijkstra
+vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+`,
+ 
+    },
+    {
+      id: 2,
+      number: 2,
+      title: "Drone Delivery & Aerial Mapping",
+      categoryTag: "",
+      shortTag: "Dijkstra’s+Merge Sort ",
+      time: "O(n log n)",
+      space: "O(n)",
+      algorithm: "Dijkstra’s+Merge Sort ",
+      sdgs: [
+        "SDG 3: Good Health (faster delivery of medical items)",
+        "SDG 11: Sustainable Cities"
+        ],
+      problemText:
+        "Drones need to deliver medicines or parcels across a city quickly. They also capture images for mapping areas. The challenge is to choose the shortest flight path and organize the collected images.",
+      solutionText:
+        "We compute the fastest and safest drone route considering obstacles. Then we sort images based on time so they can be stitched together correctly to create a map.",
+      
+       
+        code:`Dijkstra’s 
+        vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+ 
+    },
+    {
+      id: "3",
+      number: 3,
+      title: "Water ATM & Purification Kiosk",
+      categoryTag: "",
+      shortTag: "Prim’s+AVL Tree",
+      time: "O(log n)",
+      space: "O(1)",
+      algorithm: "Prim’s+AVL Tree",
+      sdgs: [
+        "SDG 6 – Clean Water & Sanitation Ensures safe water supply and efficient usage",
+        "SDG 9 – Industry, Innovation & Infrastructure Builds smart pipeline and distribution systems"
+        ],
+      problemText:
+        "Public water ATMs must stay connected through pipelines. We need to build a low-cost water distribution network and store daily water usage records safely.",
+      solutionText:
+        "We create a minimum-cost network connecting all kiosks by selecting the cheapest possible set of pipes. We also store user and water-usage details efficiently so they can be accessed quickly.",
+      
+       code:`Prim’s
+       vector<int> prim(vector<vector<int>>& g) {
+    int n = g.size();
+    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
+    key[0] = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        int u = -1;
+        for (int v = 0; v < n; v++)
+            if (!used[v] && (u == -1 || key[v] < key[u]))
+                u = v;
+
+        used[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
+                key[v] = g[u][v];
+                parent[v] = u;
+            }
+    }
+    return parent;  
+}
+AVL Tree
+struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+`,
+ 
+    },
+    {
+      id: "4",
+      number: 4,
+      title: "City Cybersecurity & Data Protection",
+      categoryTag: "",
+      shortTag: "Warshall+AVL Tree ",
+      time: "O((V+E) log V) using a heap",
+      space: "O(V)",
+      algorithm: "Warshall+AVL Tree ",
+      sdgs: [
+        "SDG 16- Peace, Justice & Strong Institutions",
+        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks"
+        ],
+      problemText:
+        "A city has many digital systems (traffic lights, sensors, CCTV). If one gets hacked, others may be affected. We need to track which systems can reach each other and store threat reports safely.",
+      solutionText:
+        "We build a connectivity map of all critical systems to see how a cyberattack could spread. We store threat alerts in a reliable structure that can retrieve data fast.",
+     code:`Warshall
+     void warshall(vector<vector<int>>& r) {
+    int n = r.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                r[i][j] = r[i][j] || (r[i][k] && r[k][j]);
+}
+AVL Tree
+struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+
+`,
+ 
+    },
+    {
+      id: 5,
+      number: 5,
+      title: "Urban Mobility App",
+      categoryTag: "",
+      shortTag: "Dijkstra+Floyd-Warshall",
+      time: "O(n)",
+      space: "O(1)",
+      algorithm: "Dijkstra+Floyd-Warshall",
+      sdgs: [
+        "SDG 11- Sustainable Cities",
+        "SDG 9- Smart Infrastructure"
+        
+      ],
+      problemText:
+        "People use different types of transport — bus, metro, cab, bike. A single app should show shortest time and cheapest route between any two places.",
+      solutionText:
+        "We compute the most optimal path by comparing routes from different transport types. We also calculate all-pairs shortest paths so users can instantly check travel time between any two locations.",
+     code:
+       `Dijkstra 
+    vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+Floyd-Warshall
+void floydWarshall(vector<vector<int>>& d) {
+    int n = d.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+}
+`,
+ },
+    {
+      id: 6,
+      number: 6,
+      title: "Smart Building Automation",
+      categoryTag: "",
+      shortTag: "AVL Tree+Merge Sort",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "AVL Tree+Merge Sort",
+      sdgs: [
+        
+        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment",
+        "SDG 11 – Sustainable Cities & Communities Efficient use of shared space and resources"
+      ],
+      problemText:
+        "A smart building has many sensors (temperature, light, smoke). The system must store sensor data and then sort alerts so security can respond quickly.",
+      solutionText:
+        "We store sensor readings in a fast-accessible structure. We then sort alerts by priority so high-risk events (fire/smoke) are addressed first.",
+     code:
+       `AVLTree
+       struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+Merge Sort
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+ 
+    },
+    {
+      id: 7,
+      number: 7,
+      title: "Public Charging Kiosks",
+      categoryTag: "",
+      shortTag: "Prim’s+Merge Sort",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "Prim’s+Merge Sort",
+      sdgs: [
+        "SDG 7: Affordable & Clean Energy",
+        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development"
+          ],
+       problemText:
+        "Cities want to install low-cost public charging stations for mobiles/laptops. The challenge is choosing the most cost-effective layout and handling user requests.",
+      solutionText:
+        "We calculate the cheapest wiring path connecting all kiosks. We also sort charging requests so users get a fair service queue.",
+      
+      code:`Prim’s
+      vector<int> prim(vector<vector<int>>& g) {
+    int n = g.size();
+    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
+    key[0] = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        int u = -1;
+        for (int v = 0; v < n; v++)
+            if (!used[v] && (u == -1 || key[v] < key[u]))
+                u = v;
+
+        used[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
+                key[v] = g[u][v];
+                parent[v] = u;
+            }
+    }
+    return parent;  
+}
+Merge Sort 
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+  },
+    {
+      id: "8",
+      number: 8,
+      title: " Smart Pet Care & Animal Tracking",
+      categoryTag: "",
+      shortTag: "Dijkstra’s+Binary Tree",
+      time: "O(n log n)",
+      space: "O(n)",
+      algorithm: "Dijkstra’s+Binary Tree",
+      sdgs: [
+        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management",
+        "SDG 15- Life on Land"
+      ],
+      problemText:
+        "Pet owners need to track their pets using sensors. The system should show the shortest path to rescue a lost pet and store pet information.",
+      solutionText:
+        "We compute the fastest route to reach the pet using signal data. Pet records like ID, name, and owner information are stored in a searchable tree.",
+     
+      code:`Dijkstra’s
+      vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+Binary Tree
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int x) : data(x), left(NULL), right(NULL) {}
+};
+
+Node* insert(Node* root, int x) {
+    if (!root) return new Node(x);
+    if (x < root->data) root->left = insert(root->left, x);
+    else root->right = insert(root->right, x);
+    return root;
+}
+
+bool search(Node* root, int x) {
+    if (!root) return false;
+    if (root->data == x) return true;
+    return x < root->data ? search(root->left, x) : search(root->right, x);
+}
+`,
+ 
+    },
+    {
+      id: 9,
+      number: 9,
+      title: "Skill Training & Innovation Lab",
+      categoryTag: "",
+      shortTag: "AVL Tree +Merge",
+      time: "O(n·W)",
+      space: "O(W)",
+      algorithm: "AVL Tree +Merge",
+      sdgs: [
+        "SDG 4- Quality Education",
+        "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities"
+       ],
+      problemText:
+        "A training center manages many students and needs to track scores and rank them for skill improvement.",
+      solutionText:
+        "Scores are stored in a balanced tree to allow fast searching. Sorting the scores helps in preparing rank lists and identifying top performers.", 
+      code:` AVL Tree
+      struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+Merge
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+ 
+    },
+    {
+      id: 10,
+      number: 10,
+      title: "Eco-Friendly Packaging & Recycling ",
+      categoryTag: "",
+      shortTag: "Insertion Sort +AVL Tree",
+      time: "≈O(α(n)) per op",
+      space: "O(n)",
+      algorithm: "Insertion Sort +AVL Tree",
+      sdgs: [
+        "SDG 12: Responsible Consumption",
+        "SDG 13: Climate Action"
+        ],
+      problemText:
+        "A store tracks recyclable waste collected from customers and gives coupons based on the quantity. It must keep data organized and sort items by weight/value.",
+      solutionText:
+        "We store customer and coupon data in a structured tree. Items or packaging weights are sorted so recycling can be done efficiently.",
+        code:` Insertion Sort
+   void insertionSort(vector<int>& a) {
+    for (int i = 1; i < a.size(); i++) {
+        int key = a[i], j = i - 1;
+        while (j >= 0 && a[j] > key)
+            a[j-- + 1] = a[j];
+        a[j + 1] = key;
+    }
+}
+AVL Tree
+struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+`,
+ 
+    }
+  ];
+
+  // ==== RENDER SIDEBAR ====
+  const problemListEl = document.getElementById("problemList");
+  function renderSidebar(activeId) {
+    problemListEl.innerHTML = "";
+    problems.forEach(p => {
+      const li = document.createElement("li");
+      li.className = "problem-item" + (p.id === activeId ? " active" : "");
+      li.dataset.id = p.id;
+
+      const left = document.createElement("div");
+      left.className = "problem-name";
+      left.textContent = `#${p.number} · ${p.title}`;
+
+      const right = document.createElement("div");
+      right.className = "problem-tag";
+      right.textContent = p.shortTag;
+
+      li.appendChild(left);
+      li.appendChild(right);
+      li.addEventListener("click", () => {
+        setActiveProblem(p.id, true);
+      });
+
+      problemListEl.appendChild(li);
+    });
+  }
+
+  // ==== RENDER MAIN PROBLEM PAGE ====
+  const viewEl = document.getElementById("problemView");
+
+  function renderProblem(problem) {
+    const sdgHtml = problem.sdgs
+      .map(s => `<span class="sdg-chip">${s}</span>`)
+      .join("");
+
+    viewEl.innerHTML = `
+      <div class="crumbs">
+        Algorithms / <span>Problem #${problem.number}</span>
+      </div>
+
+      <div class="problem-header-main">
+        <div class="problem-title-block">
+          <div class="problem-id-pill">
+            <span>Problem #${problem.number}</span>
+          </div>
+          <h1>${problem.title}</h1>
+          <div class="problem-meta-row">
+            <span class="algo-chip">${problem.algorithm}</span>
+            
+            <span><strong>Time:</strong> ${problem.time}</span>
+            <span><strong>Space:</strong> ${problem.space}</span>
+          </div>
+          <div class="sdg-chips">
+            ${sdgHtml}
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="content-grid">
+        <div class="card">
+          <div class="card-header">
+            <span>Problem &amp; Solution</span>
+            <span class="label">Explanation</span>
+          </div>
+          <div class="card-body">
+            <strong>Problem:</strong><br />
+            <span>${problem.problemText}</span>
+            <br /><br />
+            <strong>High-level Solution:</strong><br />
+            <span>${problem.solutionText}</span>
+          </div>
+        </div>
+
+        
+
+      <div class="card code-card">
+        <div class="card-header">
+          <span>Reference Code</span>
+          <span class="label">JavaScript</span>
+        </div>
+        <div class="card-body">
+          <pre id="codeBlock"><code>${problem.code}</code></pre>
+        </div>
+      </div>
+      
+
+      
+    `;
+
+    // Hook up copy & raw buttons
+    const copyBtn = document.getElementById("copyCodeBtn");
+    const rawBtn = document.getElementById("openRawBtn");
+    const codeBlock = document.getElementById("codeBlock");
+
+    if (copyBtn && codeBlock) {
+      copyBtn.addEventListener("click", () => {
+        const text = codeBlock.innerText;
+        navigator.clipboard?.writeText(text).then(
+          () => { copyBtn.textContent = "✅ Copied"; },
+          () => { copyBtn.textContent = "⚠️ Failed"; }
+        );
+        setTimeout(() => (copyBtn.innerHTML = '<span>📋</span> Copy Code'), 1200);
+      });
+    }
+
+    if (rawBtn && codeBlock) {
+      rawBtn.addEventListener("click", () => {
+        const w = window.open("", "_blank");
+        if (!w) return;
+        w.document.write("<pre>" + codeBlock.innerText.replace(/</g, "&lt;") + "</pre>");
+        w.document.close();
+      });
+    }
+  }
+
+  // ==== ROUTING (HASH-BASED) ====
+  function setActiveProblem(id, updateHash) {
+    const problem = problems.find(p => p.id === id) || problems[0];
+    renderSidebar(problem.id);
+    renderProblem(problem);
+    if (updateHash) {
+      window.location.hash = "problem/" + problem.id;
+    }
+  }
+
+  function getProblemIdFromHash() {
+    const hash = window.location.hash || "";
+    const match = hash.match(/problem\/([a-z0-9\-]+)/i);
+    return match ? match[1] : null;
+  }
+
+  window.addEventListener("hashchange", () => {
+    const id = getProblemIdFromHash();
+    if (id) setActiveProblem(id, false);
+  });
+
+  // ==== GLOW TOGGLE ====
+  const glowToggle = document.getElementById("glowToggle");
+  let glowOn = true;
+  glowToggle?.addEventListener("click", () => {
+    document.body.style.filter = glowOn ? "saturate(0.9) brightness(0.95)" : "none";
+    glowOn = !glowOn;
+  });
+
+  // ==== INITIALISE ====
+  (function init() {
+    const initialId = getProblemIdFromHash() || problems[0].id;
+    setActiveProblem(initialId, true);
+  })();
+</script>
 </body>
 </html>
