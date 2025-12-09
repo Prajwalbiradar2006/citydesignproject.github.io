@@ -572,7 +572,7 @@
    {
       id: 1,
       number: 1,
-      title: " Smart Waste-to-Energy Plant",
+      title: " Smart Parking & Traffic Automation System",
       categoryTag: "",
       shortTag: "merge+dijkstra",
       time: "O(n)",
@@ -580,12 +580,12 @@
       algorithm: "Merge Sort,Dijkstra’s",
       sdgs: [
         "SDG 11 – Sustainable Cities",
-        "SDG 7- Affordable & Clean Energy",
-        "SDG 13- Climate Action"
+        "SDG 9 - Industry,Innovation & Infrastructure",
+        "SDG 13 - Climate Action"
       ],
       problemText:
-        "Cities generate a lot of waste, and managing it efficiently is difficult. Waste from different areas arrives at different times, and trucks must take the best route to the plant. The plant also needs to separate waste types quickly.",
-      solutionText: "We first sort waste loads so the plant can process them in the right order. Then we find the shortest route for garbage trucks so fuel and time are saved. This makes the entire waste collection and processing cycle faster and cheaper.",
+        "Cities face heavy traffic mainly because people drive around looking for empty parking spaces. Traffic signals also work on fixed timers, leading to unnecessary waiting and congestion.",
+      solutionText: "Install IoT sensors in parking areas to detect free slots and show them in a mobile app. Use automated barriers with QR/ANPR for smooth entry/exit. For traffic, use smart algorithms to adjust signal timings based on vehicle flow.",
       code: `merge sort
       void mergeSort(vector<int>& a, int l, int r) {
     if (l >= r) return;
@@ -634,24 +634,75 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
     {
       id: 2,
       number: 2,
-      title: "Drone Delivery & Aerial Mapping",
+      title: "Urban Farming & Hydroponics Center",
       categoryTag: "",
-      shortTag: "Dijkstra’s+Merge Sort ",
+      shortTag: "Binary Tree+Insertion Sort",
       time: "O(n log n)",
       space: "O(n)",
-      algorithm: "Dijkstra’s+Merge Sort ",
+      algorithm: "Binary Tree+Insertion Sort",
       sdgs: [
-        "SDG 3: Good Health (faster delivery of medical items)",
-        "SDG 11: Sustainable Cities"
+        "SDG 3 - Good Health (faster delivery of medical items)",
+        "SDG 2 - Zero Hunger",
+        "SDG 12 - Responsible Consumption & Production"
         ],
       problemText:
-        "Drones need to deliver medicines or parcels across a city quickly. They also capture images for mapping areas. The challenge is to choose the shortest flight path and organize the collected images.",
+        "City populations are growing, but farmland is decreasing. People depend on vegetables transported from far places, which is costly and not always fresh.",
       solutionText:
-        "We compute the fastest and safest drone route considering obstacles. Then we sort images based on time so they can be stitched together correctly to create a map.",
+        "Grow organic vegetables using hydroponics and vertical farming. Provide home installations and training workshops. This reduces land need, water usage, and improves food security inside cities.",
       
        
-        code:`Dijkstra’s 
-        vector<int> dijkstra(vector<vector<int>>& g, int src) {
+        code:`Binary Tree 
+   struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int x) : data(x), left(NULL), right(NULL) {}
+};
+
+Node* insert(Node* root, int x) {
+    if (!root) return new Node(x);
+    if (x < root->data) root->left = insert(root->left, x);
+    else root->right = insert(root->right, x);
+    return root;
+}
+
+bool search(Node* root, int x) {
+    if (!root) return false;
+    if (root->data == x) return true;
+    return x < root->data ? search(root->left, x) : search(root->right, x);
+}
+inserationsort
+void insertionSort(vector<int>& a) {
+    for (int i = 1; i < a.size(); i++) {
+        int key = a[i], j = i - 1;
+        while (j >= 0 && a[j] > key)
+            a[j-- + 1] = a[j];
+        a[j + 1] = key;
+    }
+}
+`,
+ 
+    },
+    {
+      id: "3",
+      number: 3,
+      title: " Public EV Charging & Battery Swap Station",
+      categoryTag: "",
+      shortTag: "Dijkstra +AVL Tree",
+      time: "O(log n)",
+      space: "O(1)",
+      algorithm: "Dijkstra +AVL Tree",
+      sdgs: [
+        "SDG 7 - Affordable & Clean Energy",
+        "SDG 11 - Sustainable Cities",
+        "SDG 13 - Climate Action"
+        ],
+      problemText:
+        "EV users struggle to find nearby charging stations or wait too long for full charging. Cities lack a proper charging infrastructure.",
+      solutionText:
+        "Set up fast charging hubs and battery swapping kiosks so EV users can replace low batteries with fully charged ones in just 3 minutes. Provide membership plans and real-time charging slot availability.",
+       code:`Dijkstra 
+     vector<int> dijkstra(vector<vector<int>>& g, int src) {
     int n = g.size();
     vector<int> dist(n, INT_MAX), vis(n, 0);
     dist[src] = 0;
@@ -670,68 +721,6 @@ vector<int> dijkstra(vector<vector<int>>& g, int src) {
     }
 
     return dist;  
-}
-void mergeSort(vector<int>& a, int l, int r) {
-    if (l >= r) return;
-
-    int m = (l + r) / 2;
-    mergeSort(a, l, m);
-    mergeSort(a, m + 1, r);
-
-    vector<int> t;
-    int i = l, j = m + 1;
-
-    while (i <= m && j <= r)
-        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
-
-    while (i <= m) t.push_back(a[i++]);
-    while (j <= r) t.push_back(a[j++]);
-
-    for (int k = 0; k < t.size(); k++)
-        a[l + k] = t[k];
-}
-`,
- 
-    },
-    {
-      id: "3",
-      number: 3,
-      title: "Water ATM & Purification Kiosk",
-      categoryTag: "",
-      shortTag: "Prim’s+AVL Tree",
-      time: "O(log n)",
-      space: "O(1)",
-      algorithm: "Prim’s+AVL Tree",
-      sdgs: [
-        "SDG 6 – Clean Water & Sanitation Ensures safe water supply and efficient usage",
-        "SDG 9 – Industry, Innovation & Infrastructure Builds smart pipeline and distribution systems"
-        ],
-      problemText:
-        "Public water ATMs must stay connected through pipelines. We need to build a low-cost water distribution network and store daily water usage records safely.",
-      solutionText:
-        "We create a minimum-cost network connecting all kiosks by selecting the cheapest possible set of pipes. We also store user and water-usage details efficiently so they can be accessed quickly.",
-      
-       code:`Prim’s
-       vector<int> prim(vector<vector<int>>& g) {
-    int n = g.size();
-    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
-    key[0] = 0;
-
-    for (int i = 0; i < n - 1; i++) {
-        int u = -1;
-        for (int v = 0; v < n; v++)
-            if (!used[v] && (u == -1 || key[v] < key[u]))
-                u = v;
-
-        used[u] = 1;
-
-        for (int v = 0; v < n; v++)
-            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
-                key[v] = g[u][v];
-                parent[v] = u;
-            }
-    }
-    return parent;  
 }
 AVL Tree
 struct Node {
@@ -789,78 +778,47 @@ Node* insertAVL(Node* n, int v) {
     {
       id: "4",
       number: 4,
-      title: "City Cybersecurity & Data Protection",
+      title: "Smart Street Lighting & Electrical Maintenance Unit",
       categoryTag: "",
-      shortTag: "Warshall+AVL Tree ",
+      shortTag: "Bellman-Ford + Binary Search Tree",
       time: "O((V+E) log V) using a heap",
       space: "O(V)",
-      algorithm: "Warshall+AVL Tree ",
+      algorithm: "Bellman-Ford + Binary Search Tree",
       sdgs: [
-        "SDG 16- Peace, Justice & Strong Institutions",
-        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks"
+        "SDG 7 - Clean Energy",
+        "SDG 9 – Industry, Innovation & Infrastructure Builds efficient green energy networks",
+        "SDG 11 - Sustainable Cities"
         ],
       problemText:
-        "A city has many digital systems (traffic lights, sensors, CCTV). If one gets hacked, others may be affected. We need to track which systems can reach each other and store threat reports safely.",
+        "Traditional streetlights waste electricity and often stay ON even during low movement hours. Repairs take long because issues are not detected early.",
       solutionText:
-        "We build a connectivity map of all critical systems to see how a cyberattack could spread. We store threat alerts in a reliable structure that can retrieve data fast.",
-     code:`Warshall
-     void warshall(vector<vector<int>>& r) {
-    int n = r.size();
-    for (int k = 0; k < n; k++)
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                r[i][j] = r[i][j] || (r[i][k] && r[k][j]);
+        "Install solar-powered LED streetlights with motion sensors and remote monitoring. Provide electrical repair and maintenance services for government buildings.",
+     code:`Bellman-Ford
+     vector<int> bellmanFord(vector<vector<int>>& edges, int n, int src) {
+    vector<int> dist(n, INT_MAX);
+    dist[src] = 0;
+
+    for (int i = 1; i < n; i++)
+        for (auto& e : edges)
+            if (dist[e[0]] != INT_MAX && dist[e[0]] + e[2] < dist[e[1]])
+                dist[e[1]] = dist[e[0]] + e[2];
+
+    return dist;
 }
-AVL Tree
-struct Node {
-    int v, h;
-    Node *l, *r;
-    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
-};
-
-int h(Node* n) { return n ? n->h : 0; }
-
-Node* rotR(Node* y) {
-    Node* x = y->l;
-    y->l = x->r;
-    x->r = y;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    return x;
+Binary Search Tree
+void insert(Node*& root, int val) {
+    if (!root) { root = new Node(val); return; }
+    if (val < root->data) insert(root->left, val);
+    else insert(root->right, val);
 }
 
-Node* rotL(Node* x) {
-    Node* y = x->r;
-    x->r = y->l;
-    y->l = x;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    return y;
+void inorder(Node* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
 }
 
-Node* insertAVL(Node* n, int v) {
-    if (!n) return new Node(v);
-
-    if (v < n->v) n->l = insertAVL(n->l, v);
-    else n->r = insertAVL(n->r, v);
-
-    n->h = max(h(n->l), h(n->r)) + 1;
-
-    int bal = h(n->l) - h(n->r);
-
-    if (bal > 1 && v < n->l->v) return rotR(n);
-    if (bal < -1 && v > n->r->v) return rotL(n);
-    if (bal > 1 && v > n->l->v) {
-        n->l = rotL(n->l);
-        return rotR(n);
-    }
-    if (bal < -1 && v < n->r->v) {
-        n->r = rotR(n->r);
-        return rotL(n);
-    }
-
-    return n;
-}
 
 `,
  
@@ -868,124 +826,25 @@ Node* insertAVL(Node* n, int v) {
     {
       id: 5,
       number: 5,
-      title: "Urban Mobility App",
+      title: "Digital Payment & FinTech Service Center",
       categoryTag: "",
-      shortTag: "Dijkstra+Floyd-Warshall",
+      shortTag: "Merge Sort + Binary Tree ",
       time: "O(n)",
       space: "O(1)",
-      algorithm: "Dijkstra+Floyd-Warshall",
+      algorithm: "Merge Sort + Binary Tree ",
       sdgs: [
-        "SDG 11- Sustainable Cities",
-        "SDG 9- Smart Infrastructure"
+        "SDG 8 - Economic Growth",
+        "SDG 9 - Smart Infrastructure",
+        "SDG 10 - Reduced Inequalities"
         
       ],
       problemText:
-        "People use different types of transport — bus, metro, cab, bike. A single app should show shortest time and cheapest route between any two places.",
+        "Small shops and local vendors struggle with digital payments. Many people still don’t know how to use UPI, QR codes, or online transactions.",
       solutionText:
-        "We compute the most optimal path by comparing routes from different transport types. We also calculate all-pairs shortest paths so users can instantly check travel time between any two locations.",
+        "Offer UPI onboarding, QR setup, micro-loans, and financial literacy workshops. Help shops adopt digital payments smoothly.",
      code:
-       `Dijkstra 
-    vector<int> dijkstra(vector<vector<int>>& g, int src) {
-    int n = g.size();
-    vector<int> dist(n, INT_MAX), vis(n, 0);
-    dist[src] = 0;
-
-    for (int i = 0; i < n; i++) {
-        int u = -1;
-        for (int j = 0; j < n; j++)
-            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
-                u = j;
-
-        vis[u] = 1;
-
-        for (int v = 0; v < n; v++)
-            if (g[u][v] && dist[u] + g[u][v] < dist[v])
-                dist[v] = dist[u] + g[u][v];
-    }
-
-    return dist;  
-}
-Floyd-Warshall
-void floydWarshall(vector<vector<int>>& d) {
-    int n = d.size();
-    for (int k = 0; k < n; k++)
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-}
-`,
- },
-    {
-      id: 6,
-      number: 6,
-      title: "Smart Building Automation",
-      categoryTag: "",
-      shortTag: "AVL Tree+Merge Sort",
-      time: "O(V + E)",
-      space: "O(V)",
-      algorithm: "AVL Tree+Merge Sort",
-      sdgs: [
-        
-        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment",
-        "SDG 11 – Sustainable Cities & Communities Efficient use of shared space and resources"
-      ],
-      problemText:
-        "A smart building has many sensors (temperature, light, smoke). The system must store sensor data and then sort alerts so security can respond quickly.",
-      solutionText:
-        "We store sensor readings in a fast-accessible structure. We then sort alerts by priority so high-risk events (fire/smoke) are addressed first.",
-     code:
-       `AVLTree
-       struct Node {
-    int v, h;
-    Node *l, *r;
-    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
-};
-
-int h(Node* n) { return n ? n->h : 0; }
-
-Node* rotR(Node* y) {
-    Node* x = y->l;
-    y->l = x->r;
-    x->r = y;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    return x;
-}
-
-Node* rotL(Node* x) {
-    Node* y = x->r;
-    x->r = y->l;
-    y->l = x;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    return y;
-}
-
-Node* insertAVL(Node* n, int v) {
-    if (!n) return new Node(v);
-
-    if (v < n->v) n->l = insertAVL(n->l, v);
-    else n->r = insertAVL(n->r, v);
-
-    n->h = max(h(n->l), h(n->r)) + 1;
-
-    int bal = h(n->l) - h(n->r);
-
-    if (bal > 1 && v < n->l->v) return rotR(n);
-    if (bal < -1 && v > n->r->v) return rotL(n);
-    if (bal > 1 && v > n->l->v) {
-        n->l = rotL(n->l);
-        return rotR(n);
-    }
-    if (bal < -1 && v < n->r->v) {
-        n->r = rotR(n->r);
-        return rotL(n);
-    }
-
-    return n;
-}
-Merge Sort
-void mergeSort(vector<int>& a, int l, int r) {
+       `Merge Sort
+    void mergeSort(vector<int>& a, int l, int r) {
     if (l >= r) return;
 
     int m = (l + r) / 2;
@@ -1003,110 +862,6 @@ void mergeSort(vector<int>& a, int l, int r) {
 
     for (int k = 0; k < t.size(); k++)
         a[l + k] = t[k];
-}
-`,
- 
-    },
-    {
-      id: 7,
-      number: 7,
-      title: "Public Charging Kiosks",
-      categoryTag: "",
-      shortTag: "Prim’s+Merge Sort",
-      time: "O(V + E)",
-      space: "O(V)",
-      algorithm: "Prim’s+Merge Sort",
-      sdgs: [
-        "SDG 7: Affordable & Clean Energy",
-        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development"
-          ],
-       problemText:
-        "Cities want to install low-cost public charging stations for mobiles/laptops. The challenge is choosing the most cost-effective layout and handling user requests.",
-      solutionText:
-        "We calculate the cheapest wiring path connecting all kiosks. We also sort charging requests so users get a fair service queue.",
-      
-      code:`Prim’s
-      vector<int> prim(vector<vector<int>>& g) {
-    int n = g.size();
-    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
-    key[0] = 0;
-
-    for (int i = 0; i < n - 1; i++) {
-        int u = -1;
-        for (int v = 0; v < n; v++)
-            if (!used[v] && (u == -1 || key[v] < key[u]))
-                u = v;
-
-        used[u] = 1;
-
-        for (int v = 0; v < n; v++)
-            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
-                key[v] = g[u][v];
-                parent[v] = u;
-            }
-    }
-    return parent;  
-}
-Merge Sort 
-void mergeSort(vector<int>& a, int l, int r) {
-    if (l >= r) return;
-
-    int m = (l + r) / 2;
-    mergeSort(a, l, m);
-    mergeSort(a, m + 1, r);
-
-    vector<int> t;
-    int i = l, j = m + 1;
-
-    while (i <= m && j <= r)
-        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
-
-    while (i <= m) t.push_back(a[i++]);
-    while (j <= r) t.push_back(a[j++]);
-
-    for (int k = 0; k < t.size(); k++)
-        a[l + k] = t[k];
-}
-`,
-  },
-    {
-      id: "8",
-      number: 8,
-      title: " Smart Pet Care & Animal Tracking",
-      categoryTag: "",
-      shortTag: "Dijkstra’s+Binary Tree",
-      time: "O(n log n)",
-      space: "O(n)",
-      algorithm: "Dijkstra’s+Binary Tree",
-      sdgs: [
-        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management",
-        "SDG 15- Life on Land"
-      ],
-      problemText:
-        "Pet owners need to track their pets using sensors. The system should show the shortest path to rescue a lost pet and store pet information.",
-      solutionText:
-        "We compute the fastest route to reach the pet using signal data. Pet records like ID, name, and owner information are stored in a searchable tree.",
-     
-      code:`Dijkstra’s
-      vector<int> dijkstra(vector<vector<int>>& g, int src) {
-    int n = g.size();
-    vector<int> dist(n, INT_MAX), vis(n, 0);
-    dist[src] = 0;
-
-    for (int i = 0; i < n; i++) {
-        int u = -1;
-        for (int j = 0; j < n; j++)
-            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
-                u = j;
-
-        vis[u] = 1;
-
-        for (int v = 0; v < n; v++)
-            if (g[u][v] && dist[u] + g[u][v] < dist[v])
-                dist[v] = dist[u] + g[u][v];
-    }
-
-    return dist;  
 }
 Binary Tree
 struct Node {
@@ -1129,26 +884,83 @@ bool search(Node* root, int x) {
     return x < root->data ? search(root->left, x) : search(root->right, x);
 }
 `,
+ },
+    {
+      id: 6,
+      number: 6,
+      title: "Smart Drainage & Rainwater Harvesting System",
+      categoryTag: "",
+      shortTag: "Warshall’s+Kruskal’s",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "Warshall’s+Kruskal’s",
+      sdgs: [
+        
+        "SDG 6 - Clean Water & Sanitation",
+        "SDG 11 - Sustainable Cities",
+        "SDG 13 - Climate Action"
+      ],
+      problemText:
+        "Cities experience waterlogging during rains because of clogged drains and poor drainage design. Water scarcity also increases because rainwater goes to waste.",
+      solutionText:
+        "Build smart underground drainage using sensors to track blockages. Create rainwater harvesting systems for homes/buildings. Use real-time flow monitoring for maintenance.",
+     code:
+       `Warshall’s
+       void warshall(vector<vector<int>>& r) {
+    int n = r.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                r[i][j] = r[i][j] || (r[i][k] && r[k][j]);
+}
+Kruskal’s
+struct Edge { int u, v, w; };
+
+int find(int x, vector<int>& p) {
+    return p[x] == x ? x : p[x] = find(p[x], p);
+}
+
+void unite(int a, int b, vector<int>& p) {
+    a = find(a, p); b = find(b, p);
+    if (a != b) p[b] = a;
+}
+
+vector<Edge> kruskal(vector<Edge>& e, int n) {
+    sort(e.begin(), e.end(), [](auto& a, auto& b){ return a.w < b.w; });
+    vector<int> p(n); iota(p.begin(), p.end(), 0);
+    vector<Edge> mst;
+
+    for (auto& x : e)
+        if (find(x.u, p) != find(x.v, p)) {
+            unite(x.u, x.v, p);
+            mst.push_back(x);
+        }
+
+    return mst;
+}
+`,
  
     },
     {
-      id: 9,
-      number: 9,
-      title: "Skill Training & Innovation Lab",
+      id: 7,
+      number: 7,
+      title: "Public Transportation Card & Ticketing System",
       categoryTag: "",
-      shortTag: "AVL Tree +Merge",
-      time: "O(n·W)",
-      space: "O(W)",
-      algorithm: "AVL Tree +Merge",
+      shortTag: "AVL Tree+Insertion Sort",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "AVL Tree+Insertion Sort",
       sdgs: [
-        "SDG 4- Quality Education",
-        "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities"
-       ],
-      problemText:
-        "A training center manages many students and needs to track scores and rank them for skill improvement.",
+        "SDG 9 - Innovation & Infrastructure",
+        "SDG 8 - Economic Growth",
+        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development"
+          ],
+       problemText:
+        "Citizens carry separate tickets/cards for bus, auto, parking, etc. This is time-consuming and inefficient.",
       solutionText:
-        "Scores are stored in a balanced tree to allow fast searching. Sorting the scores helps in preparing rank lists and identifying top performers.", 
-      code:` AVL Tree
+        "Create a universal city mobility card that works for buses, EV autos, parking, and kiosks. Add QR-based ticket scanning for speed and automation.",
+      
+      code:`AVL Tree
       struct Node {
     int v, h;
     Node *l, *r;
@@ -1198,8 +1010,37 @@ Node* insertAVL(Node* n, int v) {
 
     return n;
 }
-Merge
-void mergeSort(vector<int>& a, int l, int r) {
+Insertion Sort
+void insertionSort(vector<int>& a) {
+    for (int i = 1; i < a.size(); i++) {
+        int key = a[i], j = i - 1;
+        while (j >= 0 && a[j] > key)
+            a[j-- + 1] = a[j];
+        a[j + 1] = key;
+    }
+}
+`,
+  },
+    {
+      id: "8",
+      number: 8,
+      title: " Smart Health Monitoring & Telemedicine Hub",
+      categoryTag: "",
+      shortTag: "Merge Sort +Binary Search Tree",
+      time: "O(n log n)",
+      space: "O(n)",
+      algorithm: "Merge Sort +Binary Search Tree",
+      sdgs: [
+        "SDG 3 - Good Health & Well-Being",
+        "SDG 9 - Innovation & Infrastructure"
+      ],
+      problemText:
+        "People in cities struggle to access doctors quickly, and hospitals remain overcrowded. Elderly citizens need continuous health monitoring",
+      solutionText:
+        "Provide teleconsultation, city-wide health record storage, smart health devices, and emergency monitoring for seniors. Doctors can track patients remotely.",
+     
+      code:`Merge Sort
+      void mergeSort(vector<int>& a, int l, int r) {
     if (l >= r) return;
 
     int m = (l + r) / 2;
@@ -1218,28 +1059,43 @@ void mergeSort(vector<int>& a, int l, int r) {
     for (int k = 0; k < t.size(); k++)
         a[l + k] = t[k];
 }
+Binary Search Tree
+// BST Insert & Inorder Traversal
+void insert(Node*& root, int val) {
+    if (!root) { root = new Node(val); return; }
+    if (val < root->data) insert(root->left, val);
+    else insert(root->right, val);
+}
+
+void inorder(Node* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
 `,
  
     },
     {
-      id: 10,
-      number: 10,
-      title: "Eco-Friendly Packaging & Recycling ",
+      id: 9,
+      number: 9,
+      title: "Cultural & Event Management Center",
       categoryTag: "",
-      shortTag: "Insertion Sort +AVL Tree",
-      time: "≈O(α(n)) per op",
-      space: "O(n)",
-      algorithm: "Insertion Sort +AVL Tree",
+      shortTag: "Insertion Sort+Binary Tree ",
+      time: "O(n·W)",
+      space: "O(W)",
+      algorithm: "Insertion Sort+Binary Tree ",
       sdgs: [
-        "SDG 12: Responsible Consumption",
-        "SDG 13: Climate Action"
-        ],
+        "SDG 11 - Sustainable Cities & Communities",
+        "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities"
+       ],
       problemText:
-        "A store tracks recyclable waste collected from customers and gives coupons based on the quantity. It must keep data organized and sort items by weight/value.",
+        "Communities need organized events, but there is lack of professional management, proper sound systems, and decoration services.",
       solutionText:
-        "We store customer and coupon data in a structured tree. Items or packaging weights are sorted so recycling can be done efficiently.",
-        code:` Insertion Sort
-   void insertionSort(vector<int>& a) {
+        "Provide event planning, stage setup, lighting, sound, decorations, and hall management. Promote cultural programs and community festivals.", 
+      code:` Insertion Sort
+      void insertionSort(vector<int>& a) {
     for (int i = 1; i < a.size(); i++) {
         int key = a[i], j = i - 1;
         while (j >= 0 && a[j] > key)
@@ -1247,55 +1103,86 @@ void mergeSort(vector<int>& a, int l, int r) {
         a[j + 1] = key;
     }
 }
-AVL Tree
+Binary Tree
 struct Node {
-    int v, h;
-    Node *l, *r;
-    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+    int data;
+    Node* left;
+    Node* right;
+    Node(int x) : data(x), left(NULL), right(NULL) {}
 };
 
-int h(Node* n) { return n ? n->h : 0; }
-
-Node* rotR(Node* y) {
-    Node* x = y->l;
-    y->l = x->r;
-    x->r = y;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    return x;
+Node* insert(Node* root, int x) {
+    if (!root) return new Node(x);
+    if (x < root->data) root->left = insert(root->left, x);
+    else root->right = insert(root->right, x);
+    return root;
 }
 
-Node* rotL(Node* x) {
-    Node* y = x->r;
-    x->r = y->l;
-    y->l = x;
-    x->h = max(h(x->l), h(x->r)) + 1;
-    y->h = max(h(y->l), h(y->r)) + 1;
-    return y;
+bool search(Node* root, int x) {
+    if (!root) return false;
+    if (root->data == x) return true;
+    return x < root->data ? search(root->left, x) : search(root->right, x);
+}
+`,
+ 
+    },
+    {
+      id: 10,
+      number: 10,
+      title: "City Security & Surveillance Network",
+      categoryTag: "",
+      shortTag: "BFS (Graph Search)+Merge Sort ",
+      time: "≈O(α(n)) per op",
+      space: "O(n)",
+      algorithm: "BFS (Graph Search)+Merge Sort",
+      sdgs: [
+        "SDG 11 - Safe & Inclusive Cities",
+        "SDG 16: Peace, Justice & Strong Institutions"
+        ],
+      problemText:
+        "Increasing crime and accidents in public places require continuous monitoring, but manual surveillance is ineffective.",
+      solutionText:
+        "Install CCTV cameras, emergency SOS buttons, and provide 24×7 monitoring. Connect the system with police for real-time alerts.",
+        code:` BFS (Graph Search)
+void bfs(vector<vector<int>>& adj, int start) {
+    vector<bool> vis(adj.size(), false);
+    queue<int> q;
+
+    vis[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int u = q.front(); q.pop();
+        cout << u << " ";
+
+        for (int v : adj[u]) {
+            if (!vis[v]) {
+                vis[v] = true;
+                q.push(v);
+            }
+        }
+    }
 }
 
-Node* insertAVL(Node* n, int v) {
-    if (!n) return new Node(v);
+Merge Sort
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
 
-    if (v < n->v) n->l = insertAVL(n->l, v);
-    else n->r = insertAVL(n->r, v);
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
 
-    n->h = max(h(n->l), h(n->r)) + 1;
+    vector<int> t;
+    int i = l, j = m + 1;
 
-    int bal = h(n->l) - h(n->r);
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
 
-    if (bal > 1 && v < n->l->v) return rotR(n);
-    if (bal < -1 && v > n->r->v) return rotL(n);
-    if (bal > 1 && v > n->l->v) {
-        n->l = rotL(n->l);
-        return rotR(n);
-    }
-    if (bal < -1 && v < n->r->v) {
-        n->r = rotR(n->r);
-        return rotL(n);
-    }
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
 
-    return n;
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
 }
 `,
  
