@@ -901,3 +901,549 @@ struct Node {
     Node *l, *r;
     Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
 };
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+`,
+ 
+    },
+    {
+      id: 6,
+      number: 6,
+      title: "Co-working Space / Startup Hub",
+      categoryTag: "",
+        dataset: "#",
+      shortTag: "AVL Tree+Merge Sort",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "AVL Tree+Merge Sort",
+      sdgs: [
+        "SDG 8 – Decent Work & Economic Growth Encourages entrepreneurship and job creation",
+        "SDG 9 – Industry, Innovation & Infrastructure Creates an innovative and collaborative work environment",
+        "SDG 11 – Sustainable Cities & Communities Efficient use of shared space and resources"
+      ],
+      problemText:
+        "A co-working space has many seats, rooms, and time slots available for booking. Managing these bookings manually leads to confusion and double-booking.",
+      solutionText:
+        "A balanced tree can store all bookings in sorted order so that conflicts can be detected. Sorting time slots is also useful when generating daily usage reports.",
+     code:
+       `AVLTree
+       struct Node {
+    int v, h;
+    Node *l, *r;
+    Node(int x) : v(x), h(1), l(NULL), r(NULL) {}
+};
+
+int h(Node* n) { return n ? n->h : 0; }
+
+Node* rotR(Node* y) {
+    Node* x = y->l;
+    y->l = x->r;
+    x->r = y;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    return x;
+}
+
+Node* rotL(Node* x) {
+    Node* y = x->r;
+    x->r = y->l;
+    y->l = x;
+    x->h = max(h(x->l), h(x->r)) + 1;
+    y->h = max(h(y->l), h(y->r)) + 1;
+    return y;
+}
+
+Node* insertAVL(Node* n, int v) {
+    if (!n) return new Node(v);
+
+    if (v < n->v) n->l = insertAVL(n->l, v);
+    else n->r = insertAVL(n->r, v);
+
+    n->h = max(h(n->l), h(n->r)) + 1;
+
+    int bal = h(n->l) - h(n->r);
+
+    if (bal > 1 && v < n->l->v) return rotR(n);
+    if (bal < -1 && v > n->r->v) return rotL(n);
+    if (bal > 1 && v > n->l->v) {
+        n->l = rotL(n->l);
+        return rotR(n);
+    }
+    if (bal < -1 && v < n->r->v) {
+        n->r = rotR(n->r);
+        return rotL(n);
+    }
+
+    return n;
+}
+Merge Sort
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+ 
+    },
+    {
+      id: 7,
+      number: 7,
+      title: "Construction & Infrastructure Services",
+      categoryTag: "",
+        dataset: "#",
+      shortTag: "Prim’s+Dijkstra’s",
+      time: "O(V + E)",
+      space: "O(V)",
+      algorithm: "Prim’s+Dijkstra’s",
+      sdgs: [
+        "SDG 9 – Industry, Innovation & Infrastructure Builds robust and efficient infrastructure",
+        "SDG 11 – Sustainable Cities & Communities Supports planned, low-cost development",
+        "SDG 13 – Climate Action Reduces emissions through optimized routes and networks"
+      ],
+      problemText:
+        "Construction companies need to design roads, drainage networks, and pipelines at minimum cost. They also need to transport materials from one project site to another efficiently.",
+      solutionText:
+        "We can build the city’s infrastructure cost-effectively using an MST approach. For movement of vehicles and materials, shortest routes must be calculated.",
+      
+      code:`Prim’s
+      vector<int> prim(vector<vector<int>>& g) {
+    int n = g.size();
+    vector<int> key(n, INT_MAX), used(n, 0), parent(n, -1);
+    key[0] = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        int u = -1;
+        for (int v = 0; v < n; v++)
+            if (!used[v] && (u == -1 || key[v] < key[u]))
+                u = v;
+
+        used[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && !used[v] && g[u][v] < key[v]) {
+                key[v] = g[u][v];
+                parent[v] = u;
+            }
+    }
+    return parent;  
+}
+Dijkstra’s
+vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+`,
+ 
+    },
+    {
+      id: "8",
+      number: 8,
+      title: "Emergency & Security Services Company",
+      categoryTag: "",
+        dataset: "#",
+      shortTag: "Dijkstra’s+Warshall’s",
+      time: "O(n log n)",
+      space: "O(n)",
+      algorithm: "Dijkstra’s+Warshall’s",
+      sdgs: [
+        "SDG 3 – Good Health & Well-being Provides fast emergency response and saves lives",
+        "SDG 11 – Sustainable Cities & Communities Improves safety and disaster management",
+        "SDG 16 – Peace, Justice & Strong Institutions Enhances law enforcement and public security"
+      ],
+      problemText:
+        "Ambulances, fire trucks, and police vehicles must reach the destination immediately. The city also has different security zones that need to be monitored to know which areas are connected or isolated.",
+      solutionText:
+        "Shortest routes save lives during emergencies. Connectivity analysis helps identify vulnerable or unmonitored areas.",
+     
+      code:`Dijkstra’s
+      vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+Warshall’s
+void warshall(vector<vector<int>>& r) {
+    int n = r.size();
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                r[i][j] = r[i][j] || (r[i][k] && r[k][j]);
+}
+`,
+ 
+    },
+    {
+      id: 9,
+      number: 9,
+      title: "Online Delivery & Logistics Hub",
+      categoryTag: "",
+        dataset: "#",
+      shortTag: "Dijkstra’s+Merge",
+      time: "O(n·W)",
+      space: "O(W)",
+      algorithm: "Dijkstra’s+Merge",
+      sdgs: [
+        "SDG 8 – Decent Work & Economic Growth Supports delivery businesses and job opportunities",
+        "SDG 9 – Industry, Innovation & Infrastructure Uses technology for efficient logistics",
+        "SDG 12 – Responsible Consumption & Production Optimizes delivery, reduces fuel waste"
+      ],
+      problemText:
+        "Packages must be delivered quickly and in proper order of priority. Delivery riders must follow the shortest routes to avoid delays and fuel waste.",
+      solutionText:
+        "Packages are sorted based on delivery time, and optimal routes are calculated to speed up delivery.", 
+      code:` Dijkstra’s
+      vector<int> dijkstra(vector<vector<int>>& g, int src) {
+    int n = g.size();
+    vector<int> dist(n, INT_MAX), vis(n, 0);
+    dist[src] = 0;
+
+    for (int i = 0; i < n; i++) {
+        int u = -1;
+        for (int j = 0; j < n; j++)
+            if (!vis[j] && (u == -1 || dist[j] < dist[u]))
+                u = j;
+
+        vis[u] = 1;
+
+        for (int v = 0; v < n; v++)
+            if (g[u][v] && dist[u] + g[u][v] < dist[v])
+                dist[v] = dist[u] + g[u][v];
+    }
+
+    return dist;  
+}
+Merge
+void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+`,
+ 
+    },
+    {
+      id: 10,
+      number: 10,
+      title: "Sports & Recreation Center",
+      categoryTag: "",
+        dataset: "#",
+      shortTag: "Merge Sort+Binary Tree",
+      time: "≈O(α(n)) per op",
+      space: "O(n)",
+      algorithm: "Merge Sort+Binary Tree",
+      sdgs: [
+        "SDG 3 – Good Health & Well-being Promotes physical activity and healthy lifestyles",
+        "SDG 4 – Quality Education Provides training, coaching, and skill development",
+        "SDG 11 – Sustainable Cities & Communities Encourages community engagement through sports"
+      ],
+      problemText:
+        "Sports centers maintain player details, match scores, coaching information, and event schedules. Players must be ranked and sorted properly.",
+      solutionText:
+        "Players’ scores can be sorted to generate rankings. Member and event records can be stored in a tree for fast retrieval and updates.",
+        code:` MergeSort
+        void mergeSort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+
+    int m = (l + r) / 2;
+    mergeSort(a, l, m);
+    mergeSort(a, m + 1, r);
+
+    vector<int> t;
+    int i = l, j = m + 1;
+
+    while (i <= m && j <= r)
+        t.push_back(a[i] < a[j] ? a[i++] : a[j++]);
+
+    while (i <= m) t.push_back(a[i++]);
+    while (j <= r) t.push_back(a[j++]);
+
+    for (int k = 0; k < t.size(); k++)
+        a[l + k] = t[k];
+}
+Binary Tre
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int x) : data(x), left(NULL), right(NULL) {}
+};
+
+Node* insert(Node* root, int x) {
+    if (!root) return new Node(x);
+    if (x < root->data) root->left = insert(root->left, x);
+    else root->right = insert(root->right, x);
+    return root;
+}
+
+bool search(Node* root, int x) {
+    if (!root) return false;
+    if (root->data == x) return true;
+    return x < root->data ? search(root->left, x) : search(root->right, x);
+}
+`,
+ 
+    }
+  ];
+
+  // ==== RENDER SIDEBAR ====
+  const problemListEl = document.getElementById("problemList");
+  function renderSidebar(activeId) {
+    problemListEl.innerHTML = "";
+    problems.forEach(p => {
+      const li = document.createElement("li");
+      li.className = "problem-item" + (p.id === activeId ? " active" : "");
+      li.dataset.id = p.id;
+
+      const left = document.createElement("div");
+      left.className = "problem-name";
+      left.textContent = `#${p.number} · ${p.title}`;
+
+      const right = document.createElement("div");
+      right.className = "problem-tag";
+      right.textContent = p.shortTag;
+
+      li.appendChild(left);
+      li.appendChild(right);
+      li.addEventListener("click", () => {
+        setActiveProblem(p.id, true);
+      });
+
+      problemListEl.appendChild(li);
+    });
+  }
+
+  // ==== RENDER MAIN PROBLEM PAGE ====
+  const viewEl = document.getElementById("problemView");
+
+  function renderProblem(problem) {
+    const sdgHtml = problem.sdgs
+      .map(s => `<span class="sdg-chip">${s}</span>`)
+      .join("");
+
+    viewEl.innerHTML = `
+      <div class="crumbs">
+        Algorithms / <span>Problem #${problem.number}</span>
+      </div>
+
+      <div class="problem-header-main">
+        <div class="problem-title-block">
+            <div class="problem-actions-main">
+            <a 
+                href="${problem.dataset}" 
+                target="_blank" 
+                class="dataset-btn"
+            >
+                📊 View Dataset
+            </a>
+            </div>
+
+          <div class="problem-id-pill">
+            <span>Problem #${problem.number}</span>
+          </div>
+          <h1>${problem.title}</h1>
+          <div class="problem-meta-row">
+            <span class="algo-chip">${problem.algorithm}</span>
+          </div>
+          <div class="sdg-chips">
+            ${sdgHtml}
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="content-grid">
+        <div class="card">
+          <div class="card-header">
+            <span>Problem &amp; Solution</span>
+            <span class="label">Explanation</span>
+          </div>
+          <div class="card-body">
+            <strong>Problem:</strong><br />
+            <span>${problem.problemText}</span>
+            <br /><br />
+            <strong>High-level Solution:</strong><br />
+            <span>${problem.solutionText}</span>
+          </div>
+        </div>
+
+        
+
+      <div class="card code-card">
+        <div class="card-header">
+          <span>Reference Code</span>
+          <span class="label">c++</span>
+        </div>
+        <div class="card-body">
+          <pre id="codeBlock"><code>${problem.code}</code></pre>
+        </div>
+      </div>
+      
+
+      
+    `;
+
+    // Hook up copy & raw buttons
+    const copyBtn = document.getElementById("copyCodeBtn");
+    const rawBtn = document.getElementById("openRawBtn");
+    const codeBlock = document.getElementById("codeBlock");
+
+    if (copyBtn && codeBlock) {
+      copyBtn.addEventListener("click", () => {
+        const text = codeBlock.innerText;
+        navigator.clipboard?.writeText(text).then(
+          () => { copyBtn.textContent = "✅ Copied"; },
+          () => { copyBtn.textContent = "⚠️ Failed"; }
+        );
+        setTimeout(() => (copyBtn.innerHTML = '<span>📋</span> Copy Code'), 1200);
+      });
+    }
+
+    if (rawBtn && codeBlock) {
+      rawBtn.addEventListener("click", () => {
+        const w = window.open("", "_blank");
+        if (!w) return;
+        w.document.write("<pre>" + codeBlock.innerText.replace(/</g, "&lt;") + "</pre>");
+        w.document.close();
+      });
+    }
+  }
+
+  // ==== ROUTING (HASH-BASED) ====
+  function setActiveProblem(id, updateHash) {
+    const problem = problems.find(p => p.id === id) || problems[0];
+    renderSidebar(problem.id);
+    renderProblem(problem);
+    if (updateHash) {
+      window.location.hash = "problem/" + problem.id;
+    }
+  }
+
+  function getProblemIdFromHash() {
+    const hash = window.location.hash || "";
+    const match = hash.match(/problem\/([a-z0-9\-]+)/i);
+    return match ? match[1] : null;
+  }
+
+  window.addEventListener("hashchange", () => {
+    const id = getProblemIdFromHash();
+    if (id) setActiveProblem(id, false);
+  });
+
+  // ==== GLOW TOGGLE ====
+  const glowToggle = document.getElementById("glowToggle");
+  let glowOn = true;
+  glowToggle?.addEventListener("click", () => {
+    document.body.style.filter = glowOn ? "saturate(0.9) brightness(0.95)" : "none";
+    glowOn = !glowOn;
+  });
+
+  // ==== INITIALISE ====
+  (function init() {
+    const initialId = getProblemIdFromHash() || problems[0].id;
+    setActiveProblem(initialId, true);
+  })();
+</script>
+</body>
+</html>
