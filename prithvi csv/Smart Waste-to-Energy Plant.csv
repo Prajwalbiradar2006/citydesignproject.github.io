@@ -1,0 +1,101 @@
+ZoneID,AreaName,WasteType,DailyWaste_kg,TruckID,DistanceToPlant_km,EnergyPotential_kWh
+1,MG Road,Organic,850,T1,4.2,420
+2,City Mall,Plastic,620,T2,3.5,310
+3,Bus Stand,Mixed,980,T3,2.8,460
+4,Railway Station,Mixed,1200,T4,2.5,540
+5,Market Area,Organic,1100,T5,3.0,520
+6,Residential Block A,Organic,700,T6,5.1,340
+7,Residential Block B,Organic,680,T7,5.4,330
+8,School Zone,Paper,420,T8,4.8,210
+9,College Campus,Mixed,760,T9,4.0,380
+10,Hospital Area,Bio-Medical,540,T10,3.2,260
+11,Park Zone,Organic,390,T1,6.0,190
+12,Industrial Area,Non-Recyclable,880,T2,5.7,410
+13,Airport Road,Mixed,920,T3,4.1,440
+14,Metro Station,Plastic,740,T4,3.6,360
+15,Shopping Complex,Mixed,860,T5,3.8,410
+16,Subway Area,Organic,510,T6,4.9,250
+17,City Square,Mixed,900,T7,3.4,430
+18,Old Town,Organic,640,T8,5.8,310
+19,IT Park,Plastic,780,T9,4.3,370
+20,Warehouse Zone,Non-Recyclable,820,T10,6.5,390
+21,Bus Depot,Mixed,870,T1,4.0,420
+22,Traffic Junction 1,Plastic,690,T2,3.9,330
+23,Traffic Junction 2,Organic,720,T3,4.1,350
+24,Traffic Junction 3,Paper,610,T4,4.4,300
+25,Flyover Area,Mixed,750,T5,4.6,360
+26,Slum Area 1,Organic,680,T6,6.2,330
+27,Slum Area 2,Organic,660,T7,6.5,320
+28,Temple Area,Paper,540,T8,5.3,260
+29,Museum Area,Plastic,580,T9,5.6,280
+30,Beach Road,Mixed,820,T10,4.8,390
+31,Harbor Zone,Non-Recyclable,940,T1,5.2,440
+32,Stadium Area,Mixed,890,T2,4.0,430
+33,Event Ground,Mixed,860,T3,4.3,410
+34,City Library,Paper,420,T4,5.9,200
+35,University Gate,Organic,630,T5,5.1,300
+36,Metro Parking,Plastic,670,T6,4.7,320
+37,Taxi Stand,Mixed,720,T7,4.9,350
+38,Auto Stand,Organic,560,T8,5.5,270
+39,Highway Entry,Non-Recyclable,980,T9,3.7,460
+40,Highway Exit,Non-Recyclable,960,T10,3.9,450
+41,Toll Plaza,Mixed,830,T1,4.1,400
+42,Service Road,Organic,600,T2,5.8,290
+43,Underpass,Mixed,710,T3,4.6,340
+44,Foot Over Bridge,Paper,480,T4,5.2,230
+45,City Border Checkpost,Mixed,920,T5,3.3,440
+46,Construction Site,Non-Recyclable,860,T6,6.8,410
+47,Bus Stop A,Organic,410,T7,5.7,200
+48,Bus Stop B,Organic,430,T8,5.6,210
+49,Bus Stop C,Organic,460,T9,5.4,220
+50,Metro Line End,Plastic,740,T10,4.9,360
+51,Public Toilet Zone,Non-Recyclable,380,T1,6.9,180
+52,River Bridge,Mixed,690,T2,5.1,330
+53,Power Station,Non-Recyclable,880,T3,4.2,420
+54,Water Treatment Plant,Organic,760,T4,4.8,370
+55,Fire Station Area,Mixed,720,T5,4.0,350
+56,Police HQ Area,Mixed,780,T6,3.6,380
+57,Court Complex,Paper,540,T7,4.1,260
+58,Post Office Area,Paper,460,T8,5.0,220
+59,City Museum Gate,Plastic,520,T9,5.4,250
+60,Shopping Street,Mixed,840,T10,3.8,400
+61,Food Street,Organic,790,T1,4.0,380
+62,Night Market,Mixed,900,T2,3.7,430
+63,Hostel Area,Organic,610,T3,5.2,290
+64,Pay & Park Zone,Plastic,580,T4,5.1,280
+65,Railway Colony,Organic,540,T5,6.0,260
+66,Bus Workshop,Non-Recyclable,760,T6,6.3,360
+67,School Junction,Paper,490,T7,4.7,230
+68,Playground Area,Organic,420,T8,6.1,200
+69,Shopping Arcade,Mixed,770,T9,4.4,370
+70,City Center Plaza,Mixed,920,T10,3.5,440
+71,Convention Center,Mixed,880,T1,3.9,420
+72,Suburban Station,Mixed,740,T2,5.0,350
+73,Parking Lot A,Organic,430,T3,5.8,210
+74,Parking Lot B,Organic,450,T4,5.7,220
+75,Parking Lot C,Organic,480,T5,5.6,230
+76,Roadside Market,Organic,660,T6,4.9,320
+77,Street Corner A,Organic,390,T7,6.4,190
+78,Street Corner B,Organic,400,T8,6.3,195
+79,Warehouse Gate,Non-Recyclable,820,T9,5.2,390
+80,Logistics Hub,Non-Recyclable,900,T10,4.6,430
+81,City Exit Road,Mixed,870,T1,4.1,420
+82,Service Lane,Organic,460,T2,6.0,220
+83,Footpath Area,Organic,360,T3,6.7,170
+84,Slum Entry Point,Organic,520,T4,6.5,250
+85,Metro Control Room,Plastic,740,T5,4.0,360
+86,CCTV Control Center,Non-Recyclable,880,T6,3.4,420
+87,Public Garden Gate,Organic,470,T7,5.9,230
+88,Urban Village,Organic,560,T8,6.2,270
+89,City Outskirts,Non-Recyclable,820,T9,7.0,390
+90,Emergency Hub,Mixed,860,T10,3.6,410
+91,High Security Zone,Non-Recyclable,980,T1,3.1,460
+92,VVIP Route,Mixed,940,T2,3.2,450
+93,Defense Area Border,Non-Recyclable,900,T3,3.4,430
+94,Smart City Command Center,Mixed,1020,T4,2.9,480
+95,Border Road,Non-Recyclable,780,T5,4.8,370
+96,Truck Terminal,Mixed,740,T6,5.0,350
+97,Dump Yard,Non-Recyclable,1100,T7,7.5,520
+98,Substation Area,Plastic,620,T8,5.4,300
+99,Public Square,Mixed,880,T9,3.9,420
+100,Central Waste-to-Energy Plant,Mixed,1500,T10,0.0,750
