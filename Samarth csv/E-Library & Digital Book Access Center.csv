@@ -1,0 +1,101 @@
+BookID,Title,Category,Author,Year,Pages,Rating
+1,Digital Basics,Education,A_Sharma,2018,220,4.2
+2,Modern Physics,Science,R_Kumar,2019,350,4.5
+3,Python Programming,Technology,S_Patel,2020,480,4.7
+4,Indian History,History,M_Verma,2017,300,4.1
+5,Organic Chemistry,Science,P_Rao,2016,410,4.0
+6,Data Structures,Technology,N_Gupta,2021,520,4.8
+7,World Geography,Geography,K_Mehta,2015,290,3.9
+8,Artificial Intelligence,Technology,A_Singh,2022,600,4.9
+9,Economics Today,Economics,R_Jain,2019,260,4.2
+10,English Grammar,Language,S_Khan,2014,180,3.8
+11,Machine Learning,Technology,V_Pandey,2021,550,4.8
+12,Environmental Studies,Science,P_Desai,2018,240,4.1
+13,Digital Marketing,Business,A_Malhotra,2020,310,4.3
+14,Cloud Computing,Technology,S_Reddy,2022,490,4.7
+15,Basic Mathematics,Mathematics,R_Mishra,2016,200,3.9
+16,Advanced Algebra,Mathematics,N_Saxena,2019,360,4.4
+17,Microbiology,Science,K_Iyer,2017,410,4.2
+18,Web Development,Technology,T_Agarwal,2021,450,4.6
+19,Political Science,SocialScience,M_Nair,2015,280,3.8
+20,Operating Systems,Technology,A_Gupta,2020,530,4.7
+21,Database Systems,Technology,R_Pillai,2021,500,4.6
+22,Human Anatomy,Science,P_Chopra,2016,420,4.1
+23,Statistics Basics,Mathematics,S_Mathur,2018,260,4.0
+24,Network Security,Technology,N_Raj,2022,480,4.8
+25,Indian Constitution,Law,V_Kulkarni,2017,340,4.3
+26,Artificial Neural Networks,Technology,A_Sen,2021,570,4.7
+27,Discrete Mathematics,Mathematics,R_Bansal,2019,390,4.5
+28,Renewable Energy,Science,P_Kapoor,2020,310,4.2
+29,Mobile App Development,Technology,S_Goyal,2021,460,4.6
+30,Ethics in Society,Philosophy,M_Acharya,2014,210,3.7
+31,Big Data Analytics,Technology,R_Dutta,2022,520,4.8
+32,Quantum Mechanics,Science,A_Bose,2018,430,4.4
+33,Financial Accounting,Business,N_Shah,2017,300,4.1
+34,Compiler Design,Technology,P_Sharma,2020,480,4.6
+35,Linear Algebra,Mathematics,S_Roy,2016,350,4.3
+36,Digital Electronics,Engineering,V_Iyer,2019,410,4.5
+37,Software Engineering,Technology,R_Patel,2021,500,4.7
+38,Robotics Basics,Technology,A_Joshi,2022,540,4.8
+39,World Literature,Literature,M_Kale,2015,270,3.9
+40,IoT Fundamentals,Technology,S_Pawar,2021,420,4.6
+41,Data Mining,Technology,N_Chatterjee,2020,460,4.5
+42,Astrophysics,Science,R_Ghosh,2019,480,4.4
+43,Entrepreneurship,Business,P_Menon,2018,290,4.2
+44,Information Theory,Engineering,A_Mukherjee,2017,360,4.1
+45,Operating Research,Mathematics,S_Lohia,2020,390,4.4
+46,Blockchain Technology,Technology,R_Kulkarni,2022,520,4.8
+47,Social Psychology,SocialScience,M_Sharma,2016,310,4.0
+48,Game Development,Technology,N_Bajaj,2021,470,4.6
+49,Ethical Hacking,Technology,A_Rana,2020,490,4.7
+50,Advanced Databases,Technology,P_Verma,2022,560,4.9
+51,English Literature,Literature,S_Wilson,2015,260,3.8
+52,Numerical Methods,Mathematics,R_Nair,2019,340,4.3
+53,Urban Planning,Geography,K_Prakash,2018,300,4.1
+54,AI Ethics,Technology,M_Roy,2021,280,4.2
+55,Digital Signal Processing,Engineering,A_Kannan,2020,420,4.5
+56,Financial Management,Business,S_Bansal,2017,330,4.0
+57,Cloud Security,Technology,N_Prasad,2022,480,4.7
+58,Artificial Vision,Technology,P_Mishra,2021,510,4.8
+59,Public Administration,SocialScience,R_Mehra,2016,290,3.9
+60,Linear Programming,Mathematics,S_Aggarwal,2019,360,4.4
+61,Deep Learning,Technology,A_Tiwari,2022,600,4.9
+62,Environmental Law,Law,M_Joshi,2018,310,4.1
+63,Probability Theory,Mathematics,R_Parekh,2017,340,4.3
+64,Smart Cities,Technology,S_Gupta,2021,420,4.6
+65,Advanced Physics,Science,N_Bhatt,2019,460,4.4
+66,Digital Image Processing,Engineering,A_Chaudhary,2020,440,4.5
+67,Neural Computing,Technology,P_Rajput,2021,520,4.8
+68,Indian Economy,Economics,R_Gandhi,2016,280,4.0
+69,Agile Methodology,Technology,S_Seth,2020,300,4.3
+70,Human Rights,Law,M_Pillai,2015,250,3.8
+71,Embedded Systems,Engineering,N_Singhal,2019,410,4.4
+72,Automation Systems,Engineering,A_Kale,2021,470,4.6
+73,Digital Forensics,Technology,P_Sood,2022,490,4.7
+74,Applied Statistics,Mathematics,R_Lal,2018,330,4.2
+75,Cyber Law,Law,S_Rangan,2017,290,4.1
+76,Virtual Reality,Technology,A_Puri,2021,480,4.6
+77,Renewable Resources,Science,N_Giri,2016,310,4.0
+78,Data Visualization,Technology,P_Nanda,2020,360,4.4
+79,Econometrics,Economics,R_Bhatia,2019,390,4.3
+80,Digital Ethics,Philosophy,M_Das,2018,260,4.1
+81,Smart Healthcare,Technology,A_Mishra,2022,520,4.8
+82,Wireless Communication,Engineering,S_Bose,2020,430,4.5
+83,Algorithm Design,Technology,N_Krishna,2021,510,4.7
+84,Industrial Management,Business,R_Sharma,2017,320,4.0
+85,Computational Biology,Science,P_Ahuja,2021,480,4.6
+86,Information Systems,Technology,S_Pillai,2019,400,4.3
+87,Artificial Society,SocialScience,A_Nanda,2020,290,4.2
+88,Cloud Architecture,Technology,R_Sen,2022,550,4.8
+89,Engineering Drawing,Engineering,N_Patil,2016,270,3.9
+90,Discrete Structures,Mathematics,P_Sharan,2018,350,4.4
+91,Smart Education,Technology,S_Mahajan,2021,420,4.6
+92,Scientific Computing,Science,A_Garg,2019,390,4.3
+93,Digital Governance,PublicPolicy,R_Aggarwal,2020,310,4.2
+94,Machine Ethics,Technology,N_Rawat,2022,280,4.1
+95,Advanced Networking,Technology,P_Dube,2021,480,4.7
+96,Urban Economics,Economics,S_Joshi,2017,300,4.0
+97,IoT Security,Technology,A_Mehrotra,2022,460,4.8
+98,Knowledge Management,Business,R_Chandra,2018,330,4.2
+99,Computational Logic,Mathematics,N_Verma,2019,360,4.4
+100,Digital Learning Systems,Education,P_Khandelwal,2021,410,4.6
