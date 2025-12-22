@@ -1,0 +1,101 @@
+ParkingID,Area,TotalSlots,AvailableSlots,OccupiedSlots,TrafficDensity,AvgSpeed_kmph,DistanceToCenter_km
+1,MG Road,120,18,102,High,18,1.2
+2,MG Road,120,25,95,High,20,1.2
+3,MG Road,120,30,90,Medium,25,1.2
+4,MG Road,120,15,105,High,16,1.2
+5,MG Road,120,40,80,Medium,28,1.2
+6,Brigade Road,100,10,90,High,15,1.5
+7,Brigade Road,100,22,78,Medium,24,1.5
+8,Brigade Road,100,35,65,Medium,30,1.5
+9,Brigade Road,100,5,95,High,12,1.5
+10,Brigade Road,100,45,55,Low,40,1.5
+11,Indiranagar,150,60,90,Medium,32,2.1
+12,Indiranagar,150,55,95,Medium,30,2.1
+13,Indiranagar,150,70,80,Low,38,2.1
+14,Indiranagar,150,40,110,High,22,2.1
+15,Indiranagar,150,35,115,High,20,2.1
+16,Whitefield,200,120,80,Low,45,7.5
+17,Whitefield,200,110,90,Low,42,7.5
+18,Whitefield,200,95,105,Medium,35,7.5
+19,Whitefield,200,70,130,Medium,30,7.5
+20,Whitefield,200,50,150,High,25,7.5
+21,Yelahanka,180,90,90,Low,48,10.2
+22,Yelahanka,180,85,95,Low,46,10.2
+23,Yelahanka,180,70,110,Medium,34,10.2
+24,Yelahanka,180,60,120,Medium,32,10.2
+25,Yelahanka,180,40,140,High,26,10.2
+26,Electronic City,220,130,90,Low,50,12.8
+27,Electronic City,220,125,95,Low,48,12.8
+28,Electronic City,220,100,120,Medium,36,12.8
+29,Electronic City,220,85,135,Medium,33,12.8
+30,Electronic City,220,60,160,High,28,12.8
+31,Jayanagar,140,50,90,Medium,29,4.3
+32,Jayanagar,140,45,95,Medium,27,4.3
+33,Jayanagar,140,35,105,High,22,4.3
+34,Jayanagar,140,25,115,High,20,4.3
+35,Jayanagar,140,60,80,Low,38,4.3
+36,JP Nagar,160,70,90,Low,40,5.1
+37,JP Nagar,160,65,95,Low,38,5.1
+38,JP Nagar,160,50,110,Medium,30,5.1
+39,JP Nagar,160,40,120,Medium,28,5.1
+40,JP Nagar,160,30,130,High,24,5.1
+41,KR Puram,170,80,90,Low,42,6.7
+42,KR Puram,170,75,95,Low,40,6.7
+43,KR Puram,170,60,110,Medium,33,6.7
+44,KR Puram,170,45,125,Medium,30,6.7
+45,KR Puram,170,35,135,High,26,6.7
+46,Malleshwaram,130,55,75,Low,36,3.8
+47,Malleshwaram,130,50,80,Low,34,3.8
+48,Malleshwaram,130,40,90,Medium,28,3.8
+49,Malleshwaram,130,30,100,Medium,26,3.8
+50,Malleshwaram,130,20,110,High,22,3.8
+51,Hebbal,190,100,90,Low,44,8.9
+52,Hebbal,190,95,95,Low,42,8.9
+53,Hebbal,190,80,110,Medium,35,8.9
+54,Hebbal,190,65,125,Medium,32,8.9
+55,Hebbal,190,45,145,High,27,8.9
+56,Banashankari,150,65,85,Low,39,6.2
+57,Banashankari,150,60,90,Low,37,6.2
+58,Banashankari,150,50,100,Medium,30,6.2
+59,Banashankari,150,40,110,Medium,28,6.2
+60,Banashankari,150,30,120,High,24,6.2
+61,HSR Layout,180,90,90,Low,41,7.1
+62,HSR Layout,180,85,95,Low,39,7.1
+63,HSR Layout,180,70,110,Medium,33,7.1
+64,HSR Layout,180,55,125,Medium,30,7.1
+65,HSR Layout,180,40,140,High,26,7.1
+66,Rajajinagar,160,75,85,Low,38,4.9
+67,Rajajinagar,160,70,90,Low,36,4.9
+68,Rajajinagar,160,55,105,Medium,29,4.9
+69,Rajajinagar,160,40,120,Medium,27,4.9
+70,Rajajinagar,160,30,130,High,23,4.9
+71,BTM Layout,170,80,90,Low,40,6.5
+72,BTM Layout,170,75,95,Low,38,6.5
+73,BTM Layout,170,60,110,Medium,32,6.5
+74,BTM Layout,170,45,125,Medium,29,6.5
+75,BTM Layout,170,30,140,High,25,6.5
+76,Koramangala,190,95,95,Low,42,5.6
+77,Koramangala,190,90,100,Low,40,5.6
+78,Koramangala,190,75,115,Medium,33,5.6
+79,Koramangala,190,60,130,Medium,30,5.6
+80,Koramangala,190,45,145,High,26,5.6
+81,Majestic,210,50,160,High,20,0.5
+82,Majestic,210,45,165,High,18,0.5
+83,Majestic,210,40,170,High,16,0.5
+84,Majestic,210,35,175,High,15,0.5
+85,Majestic,210,60,150,Medium,25,0.5
+86,Airport Road,250,180,70,Low,55,28.0
+87,Airport Road,250,170,80,Low,52,28.0
+88,Airport Road,250,150,100,Medium,45,28.0
+89,Airport Road,250,120,130,Medium,40,28.0
+90,Airport Road,250,90,160,High,32,28.0
+91,City Market,140,20,120,High,18,1.0
+92,City Market,140,25,115,High,20,1.0
+93,City Market,140,30,110,Medium,24,1.0
+94,City Market,140,15,125,High,16,1.0
+95,City Market,140,40,100,Medium,28,1.0
+96,Cantonment,160,70,90,Low,37,2.5
+97,Cantonment,160,65,95,Low,35,2.5
+98,Cantonment,160,50,110,Medium,30,2.5
+99,Cantonment,160,35,125,Medium,27,2.5
+100,Cantonment,160,25,135,High,23,2.5
