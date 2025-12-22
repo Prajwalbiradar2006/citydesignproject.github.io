@@ -1,0 +1,101 @@
+EventID,EventName,EventType,City,ExpectedAudience,Budget,EventDay,HallNumber
+1,Music Night,Concert,Bangalore,500,250000,12,3
+2,Classical Dance,Dance,Pune,300,180000,15,2
+3,Drama Fest,Drama,Delhi,400,220000,18,4
+4,Food Carnival,Festival,Mumbai,800,350000,20,5
+5,Art Exhibition,Exhibition,Chennai,200,120000,10,1
+6,Standup Comedy,Comedy,Bangalore,450,200000,22,3
+7,Folk Dance,Dance,Hyderabad,350,170000,14,2
+8,Book Fair,Fair,Pune,600,280000,25,6
+9,Street Play,Drama,Delhi,250,130000,9,1
+10,Cultural Night,Festival,Mumbai,700,320000,27,5
+11,Rock Concert,Concert,Chennai,900,400000,30,7
+12,Puppet Show,Drama,Bangalore,150,90000,8,1
+13,Yoga Camp,Workshop,Pune,200,110000,11,2
+14,Photography Expo,Exhibition,Hyderabad,350,160000,16,3
+15,Poetry Meet,Workshop,Delhi,180,100000,13,2
+16,Food Tasting,Festival,Mumbai,500,260000,19,4
+17,Kids Carnival,Festival,Chennai,600,290000,21,5
+18,Open Mic,Comedy,Bangalore,220,120000,17,2
+19,Heritage Walk,Workshop,Pune,150,80000,7,1
+20,Film Screening,Drama,Delhi,400,210000,23,3
+21,Fashion Show,Exhibition,Mumbai,550,300000,26,6
+22,Music Workshop,Workshop,Chennai,180,95000,12,2
+23,Magic Show,Comedy,Bangalore,350,175000,18,3
+24,Traditional Fair,Fair,Pune,700,330000,29,6
+25,Street Music,Concert,Delhi,260,140000,14,1
+26,Art Workshop,Workshop,Mumbai,200,110000,10,2
+27,Theatre Play,Drama,Chennai,420,230000,24,4
+28,Food Expo,Festival,Bangalore,800,360000,28,5
+29,Photography Walk,Workshop,Pune,170,90000,9,1
+30,Cultural Parade,Festival,Delhi,900,420000,31,7
+31,Classical Music,Concert,Mumbai,480,240000,15,3
+32,Dance Battle,Dance,Chennai,600,280000,20,4
+33,Art Fair,Exhibition,Bangalore,550,260000,22,5
+34,Standup Night,Comedy,Pune,300,150000,13,2
+35,Drama Workshop,Workshop,Delhi,200,120000,11,2
+36,Folk Festival,Festival,Mumbai,850,380000,27,6
+37,Kids Play,Drama,Chennai,250,140000,16,3
+38,Singing Contest,Concert,Bangalore,450,210000,19,3
+39,Book Reading,Workshop,Pune,160,85000,8,1
+40,Food Truck Fest,Festival,Delhi,750,340000,25,6
+41,Art Showcase,Exhibition,Mumbai,300,170000,14,2
+42,Instrumental Music,Concert,Chennai,400,220000,18,3
+43,Street Dance,Dance,Bangalore,500,240000,21,4
+44,Short Film Fest,Drama,Pune,350,190000,17,3
+45,Cultural Workshop,Workshop,Delhi,220,130000,12,2
+46,Heritage Expo,Exhibition,Mumbai,450,250000,23,4
+47,Food Art Fest,Festival,Chennai,600,300000,26,5
+48,Comedy Battle,Comedy,Bangalore,380,180000,20,3
+49,Photography Talk,Workshop,Pune,200,100000,10,2
+50,Music Fiesta,Concert,Delhi,800,370000,28,6
+51,Traditional Dance,Dance,Mumbai,420,210000,15,3
+52,Art & Craft Fair,Fair,Chennai,650,310000,24,5
+53,Drama Night,Drama,Bangalore,360,190000,18,3
+54,Open Air Concert,Concert,Pune,900,430000,30,7
+55,Kids Drawing,Workshop,Delhi,180,95000,9,1
+56,Food Heritage,Festival,Mumbai,700,330000,25,6
+57,Cultural Talk,Workshop,Chennai,220,120000,13,2
+58,Standup Stars,Comedy,Bangalore,400,200000,22,4
+59,Street Art,Exhibition,Pune,300,160000,14,2
+60,Music Marathon,Concert,Delhi,850,390000,29,6
+61,Drama Showcase,Drama,Mumbai,450,230000,20,4
+62,Classical Workshop,Workshop,Chennai,200,110000,12,2
+63,Folk Music,Concert,Bangalore,500,250000,18,3
+64,Art Competition,Exhibition,Pune,350,180000,16,3
+65,Food Culture Fest,Festival,Delhi,780,350000,26,5
+66,Poetry Slam,Workshop,Mumbai,220,125000,11,2
+67,Dance Festival,Dance,Chennai,700,320000,27,6
+68,Comedy Special,Comedy,Bangalore,420,210000,19,3
+69,Book Launch,Workshop,Pune,180,95000,10,1
+70,Music Gala,Concert,Delhi,900,420000,30,7
+71,Street Theatre,Drama,Mumbai,300,170000,15,2
+72,Art Seminar,Workshop,Chennai,250,130000,14,2
+73,Youth Fest,Festival,Bangalore,850,380000,28,6
+74,Film Workshop,Workshop,Pune,200,115000,12,2
+75,Food & Music,Festival,Delhi,800,360000,25,6
+76,Instrument Expo,Exhibition,Mumbai,400,220000,18,3
+77,Kids Talent Show,Drama,Chennai,300,160000,16,3
+78,Rock Band Night,Concert,Bangalore,600,300000,22,5
+79,Cultural Quiz,Workshop,Pune,150,85000,9,1
+80,Dance Carnival,Dance,Delhi,750,340000,27,6
+81,Art Gallery,Exhibition,Mumbai,280,150000,13,2
+82,Music Practice,Workshop,Chennai,200,110000,11,2
+83,Folk Drama,Drama,Bangalore,350,180000,17,3
+84,Street Food Fest,Festival,Pune,900,400000,30,7
+85,Poetry Reading,Workshop,Delhi,170,90000,10,1
+86,Traditional Music,Concert,Mumbai,450,230000,18,3
+87,Art Demo,Exhibition,Chennai,320,170000,15,2
+88,Standup Laughs,Comedy,Bangalore,380,190000,20,3
+89,Cultural Walk,Workshop,Pune,140,80000,8,1
+90,Music & Dance,Festival,Delhi,850,390000,29,6
+91,Drama Rehearsal,Drama,Mumbai,260,140000,12,2
+92,Painting Class,Workshop,Chennai,200,110000,11,2
+93,Live Band Show,Concert,Bangalore,700,330000,24,5
+94,Art Meet,Exhibition,Pune,300,160000,14,2
+95,Food Heritage Walk,Festival,Delhi,600,290000,22,5
+96,Open Stage,Comedy,Mumbai,350,180000,18,3
+97,Cultural Exhibition,Exhibition,Chennai,500,260000,21,4
+98,Music Practice Camp,Workshop,Bangalore,220,120000,13,2
+99,Street Carnival,Festival,Pune,900,420000,31,7
+100,Grand Cultural Fest,Festival,Delhi,1200,550000,32,8
